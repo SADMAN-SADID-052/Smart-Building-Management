@@ -12,6 +12,7 @@ import Home from './Pages/Home.jsx'
 import HomeLayout from './Layouts/HomeLayout.jsx'
 import Apartment from './Pages/Apartment.jsx'
 import Login from './Pages/Login.jsx'
+import SignUp from './Pages/SignUp.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
     element:<Login></Login>
 
 
+  },
+
+  {
+
+    path:"/signup",
+    element:<SignUp></SignUp>
   }
 ]);
 

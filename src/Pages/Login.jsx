@@ -32,30 +32,43 @@ const Login = () => {
         
         <hr className="my-4 border-gray-600" />
         
-        <form className="space-y-4">
+        <form
+        
+        // onSubmit={}
+        className="space-y-4">
           <input 
-            type="text" 
-            id="username" 
-            placeholder="Username" 
+            type="email" 
+            id="username"
+            name='email' 
+            placeholder="Enter Your Email" 
+            required
             className="w-full px-4 py-2 rounded-lg text-black text-base sm:text-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input 
             type="password" 
             id="password" 
             placeholder="Password" 
+            name='password'
+            required
             className="w-full px-4 py-2 rounded-lg text-black text-base sm:text-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-                 
-        </form>
-        <Link className='btn btn-error'><span className='p-4 text-white font-bold text-xl'>LogIn</span></Link>    
-        <Link
+
+       <button
+       type='submit'
+       className='btn btn-error'><span className='p-4 text-white font-bold text-xl'>LogIn</span></button>    
+        <div
+
+        // onClick={}
         className="flex gap-3 items-center justify-center p-3 bg-white text-gray-800 shadow-lg rounded-full hover:shadow-2xl hover:bg-gray-50 transition duration-300 ease-in-out mt-4"
       >
         <FcGoogle size={24} />
         <span className="font-medium text-lg">Log in with Google</span>
-      </Link>
+      </div>
         
         <p className="mt-4 text-gray-300">If you're new here, click to <a href="#" className="underline hover:text-pink-300">Sign Up</a></p>
+                 
+        </form>
+    
       </div>
     </section>
             
