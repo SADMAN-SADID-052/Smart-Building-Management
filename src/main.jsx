@@ -9,12 +9,28 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home.jsx'
+import HomeLayout from './Layouts/HomeLayout.jsx'
+import Apartment from './Pages/Apartment.jsx'
+import Login from './Pages/Login.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <HomeLayout></HomeLayout>,
   },
+
+  {
+
+    path:"/apartment",
+    element:<Apartment></Apartment>
+  },
+
+  {
+    path:"/login",
+    element:<Login></Login>
+
+
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
