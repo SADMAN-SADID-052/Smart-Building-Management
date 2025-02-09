@@ -1,18 +1,21 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-import { BrowserRouter } from 'react-router'
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './Pages/Home.jsx'
+
 import HomeLayout from './Layouts/HomeLayout.jsx'
 import Apartment from './Pages/Apartment.jsx'
 import Login from './Pages/Login.jsx'
 import SignUp from './Pages/SignUp.jsx'
+import AuthLayout from './Layouts/AuthLayout.jsx'
+import AuthProvider from './Provider/AuthProvider';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const router = createBrowserRouter([
   {
@@ -21,29 +24,56 @@ const router = createBrowserRouter([
   },
 
   {
+    path:"auth",
+    element:<AuthLayout></AuthLayout>,
+    children:[
+  
+      {
+        path:"/auth/login",
+        element:<Login></Login>,
+      },
+      {
+        path:"/auth/signup",
+        element: <SignUp></SignUp>,
+      }
+      
+    ]
+  },
+
+  {
 
     path:"/apartment",
     element:<Apartment></Apartment>
   },
 
-  {
-    path:"/login",
-    element:<Login></Login>
 
-
-  },
-
-  {
-
-    path:"/signup",
-    element:<SignUp></SignUp>
-  }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+<AuthProvider>
 
 <RouterProvider router={router} />
+
+<ToastContainer
+position="top-center"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+
+/>
+</AuthProvider>
+
+
+
+
+
   
   </StrictMode>,
 )

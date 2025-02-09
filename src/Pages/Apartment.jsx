@@ -17,6 +17,7 @@ const Apartment = () => {
 
             <Footer></Footer>
             
+            
         </div>
     );
 };

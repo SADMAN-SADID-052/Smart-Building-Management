@@ -2,19 +2,63 @@
 import { Link } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import '../Styles/Style.css'
-import Navbar from '../Components/Navbar';
+
 
 const Login = () => {
+
+  // login User
+  const handleLogin = (e) =>{
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email,password)
+    
+    // userLogin(email,password)
+    // .then(result =>{
+
+    //   const user = result.user;
+    //   setUser(user);
+    //   navigate(location?.state  ? location.state : "/");
+    //   toast.success("Login Successful!", {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    //   });
+      
+      
+    // })
+    // .catch((error)=>{
+
+    //   toast.error("Email or Password does not match!", {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    //   });
+
+      
+    // })
+  
+  }
+
+
     return (
         <div>
 
-            <div className='max-w-6xl mx-auto'>
+            <div>
 
-                <header>
-                    <Navbar></Navbar>
-                </header>
+              
 
-            <section className="bg-gray-800  pt-[10%] relative flex items-center justify-center">
+    <section className="bg-gray-800  pt-[10%] relative flex items-center justify-center">
       {/* Decorative Circles */}
       <div className="top-blue w-[250px] h-[250px] bg-blue-400 rounded-full absolute top-[10%] left-[50%]"></div>
       <div className="bottom-pink w-[280px] h-[280px] bg-pink-400 rounded-full absolute top-[50%] left-[12%] lg:left-[30%]"></div>
@@ -34,7 +78,7 @@ const Login = () => {
         
         <form
         
-        // onSubmit={}
+        onSubmit={handleLogin}
         className="space-y-4">
           <input 
             type="email" 
@@ -65,7 +109,7 @@ const Login = () => {
         <span className="font-medium text-lg">Log in with Google</span>
       </div>
         
-        <p className="mt-4 text-gray-300">If you're new here, click to <a href="#" className="underline hover:text-pink-300">Sign Up</a></p>
+        <p className="mt-4 text-gray-300">If you're new here, click to <Link to="/auth/signup" className="underline hover:text-pink-300">Sign Up</Link></p>
                  
         </form>
     

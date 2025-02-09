@@ -1,19 +1,89 @@
 
-import Navbar from '../Components/Navbar';
-import { FcGoogle } from "react-icons/fc";
+
 import '../Styles/Style.css'
-import Footer from '../Components/Footer';
+
+import { Link } from 'react-router';
+import { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
+ 
+  const { createUser, setUser } = useContext(AuthContext)
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photo = e.target.photo.value;
+    const password = e.target.password.value;
+
+    // console.log(name, email, password, photo);
+
+
+    // Password length validation
+    if (password.length < 6) {
+      toast.error('Password Should be 6 Characters or longer', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
+
+    
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      toast.error('Password must be one uppercase letter, one lowercase letter, one number, and one special character!!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
+
+    // Firebase Authentication
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+
+        toast.success('Registration Successful!', {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+
+        e.target.reset(); 
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
     return (
         <div>
 
-        <div className='max-w-6xl mx-auto  mb-4'>
+        <div>
 
-            <header>
-                <Navbar></Navbar>
-            </header>
-
+         
 <section className="bg-gray-800  pt-[10%] relative flex items-center justify-center rounded-b-4xl">
   {/* Decorative Circles */}
   <div className="top-blue w-[250px] h-[250px] bg-blue-400 rounded-full absolute top-[10%] left-[50%]"></div>
@@ -26,7 +96,7 @@ const SignUp = () => {
       id="passport" 
       src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" 
       alt="User Avatar" 
-      className=""
+     
     />
     <p className="text-xl sm:text-2xl font-semibold mt-3">SIGNUP Here</p>
     
@@ -34,7 +104,7 @@ const SignUp = () => {
     
     <form
     
-    // onSubmit={}
+    onSubmit={handleSignUp}
     className="space-y-4">
       <input 
         type="text" 
@@ -46,7 +116,7 @@ const SignUp = () => {
       />
       <input 
         type="email" 
-        id="username"
+        // id="username"
         name="email" 
         placeholder="Enter Your Email" 
         required
@@ -54,7 +124,7 @@ const SignUp = () => {
       />
       <input 
         type="text" 
-        id="username"
+        // id="username"
         name="photo" 
         placeholder="Enter Your Photo URL" 
         required
@@ -73,7 +143,7 @@ const SignUp = () => {
    type='submit'
    className='btn btn-error'><span className='p-4 text-white font-bold text-xl'>Sign Up</span></button>    
  
-    <p className="mt-4 text-gray-300">Already have an Account, click to <a href="#" className="underline text-pink-300">LogIn</a></p>
+    <p className="mt-4 text-gray-300">Already have an Account, click to <Link to="/auth/login" className="underline text-pink-300">LogIn</Link></p>
              
     </form>
 
@@ -83,7 +153,7 @@ const SignUp = () => {
 
         </div>
 
-        <Footer></Footer>
+       
 
 
     </div>

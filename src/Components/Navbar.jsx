@@ -60,7 +60,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link>
+    <Link to="/auth/login">
         <img className='w-20' src="https://cdn-icons-png.freepik.com/256/10254/10254322.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
     </Link>
   </div>
