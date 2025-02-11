@@ -3,7 +3,8 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import Banner from '../Components/Banner';
 import About from '../Components/About';
-
+import Coupon from '../Components/Coupon';
+// import Map from '../Components/Map';
 const HomeLayout = () => {
     return (
         <div>
@@ -17,6 +18,13 @@ const HomeLayout = () => {
 
                 <section>
                     <About></About>
+                </section>
+
+                <section>
+                    <Coupon></Coupon>
+                </section>
+                <section>
+                    {/* <Map></Map> */}
                 </section>
 
             </main>
