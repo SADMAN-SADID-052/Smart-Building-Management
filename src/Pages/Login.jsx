@@ -1,10 +1,50 @@
 
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import '../Styles/Style.css'
-
+import { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import auth from '../Firebase/firebase.login';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+
+
+  const {userLogin,setUser} = useContext(AuthContext)
+
+  const navigate = useNavigate();
+
+  // Google login
+const provider = new GoogleAuthProvider();
+const handleGoogleLogin = () =>{
+
+  signInWithPopup(auth,provider)
+  .then((result) => {
+    navigate(location?.state  ? location.state : "/");
+    // console.log(result)
+
+    toast.success("Login Successful!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
+
+  })
+
+  .catch(error =>{
+
+    console.log('error',error)
+  })
+
+}
+
 
   // login User
   const handleLogin = (e) =>{
@@ -13,43 +53,40 @@ const Login = () => {
     const password = e.target.password.value;
     console.log(email,password)
     
-    // userLogin(email,password)
-    // .then(result =>{
+    userLogin(email,password)
+    .then(result =>{
 
-    //   const user = result.user;
-    //   setUser(user);
-    //   navigate(location?.state  ? location.state : "/");
-    //   toast.success("Login Successful!", {
-    //     position: "top-center",
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "dark",
-    //   });
+      const user = result.user;
+      setUser(user);
+      navigate(location?.state  ? location.state : "/");
+      toast.success("Login Successful!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       
       
-    // })
-    // .catch((error)=>{
+    })
+    .catch((error)=>{
 
-    //   toast.error("Email or Password does not match!", {
-    //     position: "top-center",
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "dark",
-    //   });
+      toast.error("Email or Password does not match!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
 
       
-    // })
-  
-  }
-
+    })}
 
     return (
         <div>
@@ -100,14 +137,11 @@ const Login = () => {
        <button
        type='submit'
        className='btn btn-error'><span className='p-4 text-white font-bold text-xl'>LogIn</span></button>    
-        <div
-
-        // onClick={}
-        className="flex gap-3 items-center justify-center p-3 bg-white text-gray-800 shadow-lg rounded-full hover:shadow-2xl hover:bg-gray-50 transition duration-300 ease-in-out mt-4"
-      >
-        <FcGoogle size={24} />
-        <span className="font-medium text-lg">Log in with Google</span>
-      </div>
+      <div className='text-center mt-6'>
+        <button 
+        onClick={handleGoogleLogin}
+        className='btn btn-outline'>Log In With Google</button>
+        </div>
         
         <p className="mt-4 text-gray-300">If you're new here, click to <Link to="/auth/signup" className="underline hover:text-pink-300">Sign Up</Link></p>
                  
