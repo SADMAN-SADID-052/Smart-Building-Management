@@ -1,5 +1,5 @@
 
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import '../Styles/Style.css'
 import { useContext } from 'react';
@@ -12,6 +12,7 @@ const Login = () => {
 
 
   const {userLogin,setUser} = useContext(AuthContext)
+  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -22,7 +23,7 @@ const handleGoogleLogin = () =>{
   signInWithPopup(auth,provider)
   .then((result) => {
     navigate(location?.state  ? location.state : "/");
-    // console.log(result)
+    console.log(result)
 
     toast.success("Login Successful!", {
       position: "top-center",

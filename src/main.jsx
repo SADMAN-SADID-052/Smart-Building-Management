@@ -15,6 +15,9 @@ import AuthLayout from './Layouts/AuthLayout.jsx'
 import AuthProvider from './Provider/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { APIProvider } from '@vis.gl/react-google-maps';
+import { googleMapAPIKey } from './GoogleMap/map-api-key.js';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,7 +46,9 @@ const router = createBrowserRouter([
   {
 
     path:"/apartment",
-    element:<Apartment></Apartment>
+    element:(<PrivateRoute>
+      <Apartment></Apartment>
+    </PrivateRoute>)
   },
 
 
@@ -68,6 +73,8 @@ pauseOnHover
 theme="colored"
 
 />
+
+<APIProvider apiKey={googleMapAPIKey}></APIProvider>
 </AuthProvider>
 
 
