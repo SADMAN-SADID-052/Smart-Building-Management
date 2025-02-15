@@ -2,14 +2,15 @@
 
 import '../Styles/Style.css'
 
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const SignUp = () => {
  
-  const { createUser, setUser } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const { createUser, setUser,updateUserProfile } = useContext(AuthContext)
   const handleSignUp = (e) => {
     e.preventDefault();
 
@@ -57,6 +58,11 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        updateUserProfile(name,photo)
+        .then(() => {
+           
+          console.log('user Profile info updated')
+        })
         setUser(user);
 
         toast.success('Registration Successful!', {
@@ -71,6 +77,8 @@ const SignUp = () => {
         });
 
         e.target.reset(); 
+        navigate('/');
+        
       })
       .catch((error) => {
         const errorCode = error.code;

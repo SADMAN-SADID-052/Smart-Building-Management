@@ -18,6 +18,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { APIProvider } from '@vis.gl/react-google-maps';
 import { googleMapAPIKey } from './GoogleMap/map-api-key.js';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import DashBoard from './Layouts/DashBoard.jsx';
+import Myprofile from './Pages/Dashboard/MyProfile.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -50,6 +53,21 @@ const router = createBrowserRouter([
       <Apartment></Apartment>
     </PrivateRoute>)
   },
+
+  {
+
+    path:'/dashboard',
+    element:<DashBoard></DashBoard>,
+
+    children:[
+
+      {
+        path: '/dashboard/myProfile',
+        element:<Myprofile></Myprofile>
+
+      }
+    ]
+  }
 
 
 ]);
