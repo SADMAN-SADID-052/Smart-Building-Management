@@ -118,7 +118,7 @@ const Apartment = () => {
             </button>
           </div>
 
-          {/* Loading State */}
+          
           {loading && <p className="text-center">Loading apartments...</p>}
 
           {/* Apartment List */}
@@ -139,7 +139,7 @@ const Apartment = () => {
                 {/* Agreement Button */}
 
                 <button
-                  onClick={() => handleAgreement(apartment._id)}
+                  onClick={() => handleAgreement(apartment)}
                   className="mt-4 bg-[#E8E8E8] text-blue-400 font-semibold px-4 py-2 rounded-2xl border-b-2 border-blue-400 w-full"
                 >
                   AGREEMENT

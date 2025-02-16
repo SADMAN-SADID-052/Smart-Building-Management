@@ -6,9 +6,11 @@ import { Link, useNavigate } from 'react-router';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import useAxiosPublic from '../Hooks/useAxiosPublic';
 
 const SignUp = () => {
- 
+  const axiosPublic = useAxiosPublic();
+  
   const navigate = useNavigate()
   const { createUser, setUser,updateUserProfile } = useContext(AuthContext)
   const handleSignUp = (e) => {
@@ -60,24 +62,42 @@ const SignUp = () => {
         const user = result.user;
         updateUserProfile(name,photo)
         .then(() => {
+          //  create user entry in the database
            
+           const userInfo = { 
+
+            name: name,
+            email: email
+           }
+           axiosPublic.post('/users',userInfo)
+           .then(res => {
+
+
+            if(res.insertedId)
+            {
+              
+              console.log('user added to the database')
+              setUser(user);
+
+              toast.success('Registration Successful!', {
+                position: 'top-center',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+              });
+      
+              e.target.reset(); 
+              navigate('/');
+              
+            }
+           })
           console.log('user Profile info updated')
         })
-        setUser(user);
-
-        toast.success('Registration Successful!', {
-          position: 'top-center',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'dark',
-        });
-
-        e.target.reset(); 
-        navigate('/');
+      
         
       })
       .catch((error) => {

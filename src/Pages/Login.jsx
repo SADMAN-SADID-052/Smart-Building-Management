@@ -7,10 +7,13 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import auth from '../Firebase/firebase.login';
 import { toast } from 'react-toastify';
+import useAxiosPublic from '../Hooks/useAxiosPublic';
 
 const Login = () => {
 
 
+
+  const axiosPublic = useAxiosPublic();
   const {userLogin,setUser} = useContext(AuthContext)
   const location = useLocation();
 
@@ -22,8 +25,20 @@ const handleGoogleLogin = () =>{
 
   signInWithPopup(auth,provider)
   .then((result) => {
+
+    const userInfo = {
+      name: result.user?.displayName,
+      email: result.user?.email
+      
+    }
+
+    axiosPublic.post('/users',userInfo)
+    .then(res => {
+      console.log(res.data);
+    })
+
     navigate(location?.state  ? location.state : "/");
-    console.log(result)
+    console.log(result.user)
 
     toast.success("Login Successful!", {
       position: "top-center",
