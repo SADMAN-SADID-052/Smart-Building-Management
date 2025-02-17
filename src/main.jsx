@@ -21,10 +21,12 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 // import DashBoard from './Layouts/DashBoard.jsx';
 
 import DashBoardLayout from './Layouts/DashBoardLayout.jsx';
-import Myprofile from './Pages/UserDashboard/MyProfile.jsx';
+
 import Announcements from './Pages/UserDashboard/Announcements.jsx';
 import AllMembers from './Pages/UserDashboard/AllMembers.jsx';
 import AgreementReq from './Pages/AdminDash/AgreementReq.jsx';
+import Profile from './Pages/CommonDash/Profile.jsx';
+import MakePay from './Pages/MembersDash/MakePay.jsx';
 
 
 
@@ -67,14 +69,17 @@ const router = createBrowserRouter([
       {
         
 
-        path:"/dashboard/myProfile",
-        element:<Myprofile></Myprofile>
+        path:'myProfile',
+        element:(<PrivateRoute>
+
+          <Profile></Profile>
+        </PrivateRoute>)
 
       },
 
       {
 
-        path:"/dashboard/announcements",
+        path:'announcements',
         element:<Announcements></Announcements>
       }
 
@@ -87,6 +92,13 @@ const router = createBrowserRouter([
       {
         path:'agreementReq',
         element:<AgreementReq></AgreementReq>
+      },
+      {
+        path:'makePay',
+        element:(<PrivateRoute>
+
+          <MakePay></MakePay>
+        </PrivateRoute>)
       }
 
       

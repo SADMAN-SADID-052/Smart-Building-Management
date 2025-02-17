@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Swal from 'sweetalert2'; // Import SweetAlert
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AllAgreements = () => {
-    
+
+    const axiosSecure = useAxiosSecure()
     const [agreements, setAgreements] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -13,7 +15,7 @@ const AllAgreements = () => {
 
     const fetchAllAgreements = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/agreements");
+            const response = await axiosSecure.get('/agreement');
             setAgreements(response.data);
         } catch (error) {
             console.error("Error fetching agreements:", error);
@@ -23,7 +25,7 @@ const AllAgreements = () => {
 
     const handleAction = async (id, action) => {
         try {
-            const response = await axios.patch(`http://localhost:5000/agreements/${id}`, { action });
+            const response = await axiosSecure.patch(`/agreement/${id}`, { action });
 
             if (response.status === 200) {
                 Swal.fire("Success!", "Agreement updated successfully.", "success");
