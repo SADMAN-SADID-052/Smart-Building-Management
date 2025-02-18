@@ -10,7 +10,7 @@ const MembersMenu = () => {
         label='Add Plant'
         address='add-plant'
       />
-      <MenuItem icon={MdHomeWork} label='My Inventory' address='my-inventory' />
+      <MenuItem icon={MdHomeWork} label='Make Payment' address='makePay' />
       <MenuItem
         icon={MdOutlineManageHistory}
         label='Manage Orders'
