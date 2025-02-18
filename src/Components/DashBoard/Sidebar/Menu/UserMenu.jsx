@@ -7,7 +7,7 @@ const UserMenu = () => {
     return (
         <div>
 
-<MenuItem icon={BsFingerprint} label='My Orders' address='my-orders' />
+<MenuItem icon={BsFingerprint} label='My Profile' address='myProfile' />
 
 <div
  

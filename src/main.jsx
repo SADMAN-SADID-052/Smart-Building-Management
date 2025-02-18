@@ -27,6 +27,7 @@ import AllMembers from './Pages/UserDashboard/AllMembers.jsx';
 import AgreementReq from './Pages/AdminDash/AgreementReq.jsx';
 import Profile from './Pages/CommonDash/Profile.jsx';
 import MakePay from './Pages/MembersDash/MakePay.jsx';
+import ManageCoupons from './Pages/AdminDash/ManageCoupons.jsx';
 
 
 
@@ -87,6 +88,13 @@ const router = createBrowserRouter([
 
         path:'manage',
         element:<AllMembers></AllMembers>
+      },
+      {
+        path:'manageCoupon',
+        element:(<PrivateRoute>
+
+          <ManageCoupons></ManageCoupons>
+        </PrivateRoute>)
       },
 
       {
