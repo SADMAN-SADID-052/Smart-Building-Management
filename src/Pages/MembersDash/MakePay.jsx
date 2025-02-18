@@ -19,7 +19,7 @@ const MakePay = () => {
 
     const fetchAgreements = async () => {
         try {
-            const response = await axiosSecure.get(`/agreement?email=${user.email}`);
+            const response = await axiosSecure(`/agreement?email=${user.email}`);
             setAgreements(response.data);
         } catch (error) {
             console.error("Error fetching agreements:", error);

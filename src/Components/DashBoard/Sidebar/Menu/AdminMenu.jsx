@@ -6,6 +6,7 @@ const AdminMenu = () => {
     <>
       <MenuItem icon={FaUserCog} label='Manage Users' address='manage-users' />
       <MenuItem icon={FaUserCog} label='Manage Coupon' address='manageCoupon' />
+      <MenuItem icon={FaUserCog} label=' Agreement Req' address='agreementReq' />
     </>
   )
 }
