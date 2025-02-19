@@ -36,6 +36,9 @@ import {
   useQuery,
 } from '@tanstack/react-query'
 import Announcements from './Pages/CommonDash/Announcements.jsx';
+import AdminRoute from './Routes/AdminRoute.jsx';
+import MemberRoute from './Routes/MemberRoute.jsx';
+import PayHistory from './Pages/MembersDash/PayHistory.jsx';
 
 
 const queryClient = new QueryClient()
@@ -110,21 +113,41 @@ const router = createBrowserRouter([
         path:'manageCoupon',
         element:(<PrivateRoute>
 
+          <AdminRoute>
           <ManageCoupons></ManageCoupons>
+          </AdminRoute>
         </PrivateRoute>)
       },
 
       {
         path:'agreementReq',
-        element:<AgreementReq></AgreementReq>
+        element:(<PrivateRoute>
+
+          <AdminRoute>
+          <AgreementReq></AgreementReq>
+          </AdminRoute>
+        </PrivateRoute>)
       },
       {
         path:'makePay',
         element:(<PrivateRoute>
 
-          <MakePay></MakePay>
+         <MemberRoute>
+         <MakePay></MakePay>
+         </MemberRoute>
+        </PrivateRoute>)
+      },
+
+      {
+        path:'payHistory',
+        element:(<PrivateRoute>
+
+         <MemberRoute>
+         <PayHistory></PayHistory>
+         </MemberRoute>
         </PrivateRoute>)
       }
+
 
       
     ]

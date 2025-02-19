@@ -1,21 +1,21 @@
 import { BsFillHouseAddFill } from 'react-icons/bs'
-import { MdHomeWork, MdOutlineManageHistory } from 'react-icons/md'
+
+import { MdAnnouncement } from "react-icons/md";
+import { MdWorkHistory } from "react-icons/md";
 import MenuItem from './MenuItem';
 
 const MembersMenu = () => {
     return (
         <div>
-            <MenuItem
+
+           <MenuItem icon={MdAnnouncement} label='Announcements' address='announcements' />
+        <MenuItem
         icon={BsFillHouseAddFill}
-        label='Add Plant'
-        address='add-plant'
+        label='Make Payment'
+        address='makePay'
       />
-      <MenuItem icon={MdHomeWork} label='Make Payment' address='makePay' />
-      <MenuItem
-        icon={MdOutlineManageHistory}
-        label='Manage Orders'
-        address='manage-orders'
-      />
+      <MenuItem icon={ MdWorkHistory} label='Payment History' address='payHistory' />
+    
             
         </div>
     );

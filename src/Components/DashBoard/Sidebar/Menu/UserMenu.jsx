@@ -1,5 +1,5 @@
-import { BsFingerprint } from 'react-icons/bs'
-import { GrUserAdmin } from 'react-icons/gr'
+
+import { MdAnnouncement } from "react-icons/md";
 import MenuItem from './MenuItem';
 
 
@@ -15,7 +15,7 @@ const UserMenu = () => {
 >
  
 
-  <MenuItem icon={BsFingerprint} label='Announcements' address='announcements' />
+  <MenuItem icon={MdAnnouncement} label='Announcements' address='announcements' />
 </div>
 
 
