@@ -3,10 +3,7 @@ import React from 'react';
 const Announcements = () => {
     return (
         <div>
-
-
-<h2>announcements</h2>
-            
+            <h2>This is page</h2>
         </div>
     );
 };

@@ -22,12 +22,24 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 import DashBoardLayout from './Layouts/DashBoardLayout.jsx';
 
-import Announcements from './Pages/UserDashboard/Announcements.jsx';
+
 import AllMembers from './Pages/UserDashboard/AllMembers.jsx';
 import AgreementReq from './Pages/AdminDash/AgreementReq.jsx';
 import Profile from './Pages/CommonDash/Profile.jsx';
 import MakePay from './Pages/MembersDash/MakePay.jsx';
 import ManageCoupons from './Pages/AdminDash/ManageCoupons.jsx';
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+import Announcements from './Pages/CommonDash/Announcements.jsx';
+
+
+const queryClient = new QueryClient()
+
 
 
 
@@ -81,8 +93,13 @@ const router = createBrowserRouter([
       {
 
         path:'announcements',
-        element:<Announcements></Announcements>
-      }
+        element:(<PrivateRoute>
+          <Announcements></Announcements>
+        </PrivateRoute>)
+      },
+     
+
+    
 
       ,{
 
@@ -122,7 +139,13 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
 <AuthProvider>
 
+
+<QueryClientProvider client={queryClient}>
 <RouterProvider router={router} />
+    </QueryClientProvider>
+
+
+
 
 <ToastContainer
 position="top-center"

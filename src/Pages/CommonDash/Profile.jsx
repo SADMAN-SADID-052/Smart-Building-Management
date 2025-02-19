@@ -1,10 +1,16 @@
 import useAuth from '../../Hooks/useAuth'
+import useRole from '../../Hooks/useRole'
+import Loading from '../Loading'
 // import { Helmet } from 'react-helmet-async'
 // import coverImg from '../../../assets/images/cover.jpg'
 const Profile = () => {
-  const { user } = useAuth()
+  const { user,loading } = useAuth()
+  const [role,setLoading] = useRole()
 
-  console.log(user)
+  // if({loading, setLoading}) return <Loading></Loading>
+  // console.log(role)
+
+  // console.log(user)
   return (
     <div className='flex justify-center items-center h-screen'>
       {/* <Helmet>
@@ -25,8 +31,8 @@ const Profile = () => {
             />
           </a>
 
-          <p className='p-2 px-4 text-xs text-white bg-lime-500 rounded-full'>
-            User
+          <p className='p-2 px-4 text-xs text-black bg-lime-500 rounded-full'>
+           {role}
           </p>
           <p className='mt-2 text-xl font-medium text-gray-800 '>
             User Id: {user.uid}

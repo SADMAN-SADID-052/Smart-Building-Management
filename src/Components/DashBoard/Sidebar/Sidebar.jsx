@@ -15,9 +15,11 @@ import { Link } from 'react-router-dom'
 import AdminMenu from './Menu/AdminMenu'
 import MembersMenu from './Menu/MembersMenu'
 import UserMenu from './Menu/UserMenu'
+import useRole from '../../../Hooks/useRole'
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
+  const [role, setLoading]= useRole()
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -30,12 +32,11 @@ const Sidebar = () => {
         <div>
           <div className='block cursor-pointer p-4 font-bold'>
             <Link to='/'>
-              <img
+              <img className='w-5'
                 // className='hidden md:block'
-                src='https://i.ibb.co/4ZXzmq5/logo.png'
+                src='https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid'
                 alt='logo'
-                width='100'
-                height='100'
+               
               />
             </Link>
           </div>
@@ -61,7 +62,7 @@ const Sidebar = () => {
               <Link to='/'>
                 <img
                   // className='hidden md:block'
-                  src=""
+                  src="https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
                   alt='logo'
                   width='100'
                   height='100'
@@ -74,15 +75,19 @@ const Sidebar = () => {
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
               {/*  Menu Items */}
-              <UserMenu />
-              <MembersMenu />
 
-              <MenuItem
+             {(role === 'user') && <UserMenu />}
+             {(role === 'member') &&  <MembersMenu />}
+             {(role === 'admin') && <AdminMenu />}
+              
+       
+
+              {/* <MenuItem
                 icon={BsGraphUp}
                 label='Statistics'
                 address='/dashboard'
-              />
-              <AdminMenu />
+              /> */}
+              
             </nav>
           </div>
         </div>
@@ -93,8 +98,9 @@ const Sidebar = () => {
           <MenuItem
             icon={FcSettings}
             label='Profile'
-            address='/dashboard/profile'
+            address='myProfile'
           />
+       
           <button
             onClick={logOut}
             className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
