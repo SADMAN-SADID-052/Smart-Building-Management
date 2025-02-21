@@ -5,22 +5,48 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const AllAgreements = () => {
     const axiosSecure = useAxiosSecure();
     const [agreements, setAgreements] = useState([]);
+    const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchAllAgreements();
     }, []);
 
+    // Fetch all agreements and users
     const fetchAllAgreements = async () => {
         try {
-            const response = await axiosSecure.get('/agreement');
-            setAgreements(response.data);
+            const [agreementsResponse, usersResponse] = await Promise.all([
+                axiosSecure.get('/agreement'),
+                axiosSecure.get('/allUsers')
+            ]);
+
+            setUsers(usersResponse.data); // Store users data
+
+            // Create a set of admin emails
+            const adminEmails = new Set(
+                usersResponse.data.filter(user => user.role === "admin").map(user => user.email)
+            );
+
+            // Filter agreements to exclude those linked to admin users
+            const filteredAgreements = agreementsResponse.data.filter(
+                agreement => !adminEmails.has(agreement.userEmail)
+            );
+
+            setAgreements(filteredAgreements);
         } catch (error) {
             console.error("Error fetching agreements:", error);
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
 
+    // Get the role of a user based on email
+    const getUserRole = (email) => {
+        const user = users.find((user) => user.email === email);
+        return user ? user.role : "Not Assigned";
+    };
+
+    // Handle accept/reject actions
     const handleAction = async (id, action) => {
         try {
             const response = await axiosSecure.patch(`/agreement/${id}`, { action });
@@ -53,7 +79,7 @@ const AllAgreements = () => {
                             <p className={`text-xl font-bold ${agreement.status === "pending" ? "text-yellow-300" : "text-green-300"}`}>
                                 Status: {agreement.status || "Pending"}
                             </p>
-                            <p className="text-lg"><strong>Role:</strong> {agreement.userRole || "Not assigned"}</p>
+                            <p className="text-lg"><strong>Role:</strong> {getUserRole(agreement.userEmail)}</p>
                             <div className="mt-6 flex justify-between">
                                 <button 
                                     onClick={() => handleAction(agreement._id, "accept")} 

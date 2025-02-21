@@ -39,6 +39,8 @@ import Announcements from './Pages/CommonDash/Announcements.jsx';
 import AdminRoute from './Routes/AdminRoute.jsx';
 import MemberRoute from './Routes/MemberRoute.jsx';
 import PayHistory from './Pages/MembersDash/PayHistory.jsx';
+import MakeAnnounce from './Pages/AdminDash/MakeAnnounce.jsx';
+import ManageMembers from './Pages/AdminDash/ManageMembers.jsx';
 
 
 const queryClient = new QueryClient()
@@ -128,6 +130,32 @@ const router = createBrowserRouter([
           </AdminRoute>
         </PrivateRoute>)
       },
+      {
+
+        path:'makeAnnounce',
+        element:(<PrivateRoute>
+
+          <AdminRoute>
+          <MakeAnnounce></MakeAnnounce>
+          </AdminRoute>
+        </PrivateRoute>)
+
+      },
+
+
+      {
+
+        path:'manageMembers',
+        element:(<PrivateRoute>
+
+          <AdminRoute>
+          <ManageMembers></ManageMembers>
+          </AdminRoute>
+        </PrivateRoute>)
+
+      },
+
+
       {
         path:'makePay',
         element:(<PrivateRoute>
