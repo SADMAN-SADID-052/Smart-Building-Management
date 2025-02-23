@@ -20,16 +20,15 @@ const AllAgreements = () => {
         axiosSecure.get("/allUsers"),
       ]);
 
-      setUsers(usersResponse.data); // Store users data
+      setUsers(usersResponse.data);
 
-      // Create a set of admin emails
       const adminEmails = new Set(
         usersResponse.data
           .filter((user) => user.role === "admin")
           .map((user) => user.email)
       );
 
-      // Filter agreements to exclude those linked to admin users
+    
       const filteredAgreements = agreementsResponse.data.filter(
         (agreement) => !adminEmails.has(agreement.userEmail)
       );
@@ -42,32 +41,43 @@ const AllAgreements = () => {
     }
   };
 
-  // Get the role of a user based on email
   const getUserRole = (email) => {
     const user = users.find((user) => user.email === email);
     return user ? user.role : "Not Assigned";
   };
 
-  // Handle accept/reject actions
-  const handleAction = async (id, action, email) => {
+  //  accept
+  const handleAccept = async (agreement) => {
     try {
-      const response = await axiosSecure.patch(`/agreement/${id}`, { action });
+      const response = await axiosSecure.patch(`/agreement/${agreement._id}`, {
+        action: "accept",
+      });
+
+      Swal.fire(
+        "Success!",
+        "Agreement accepted and stored successfully.",
+        "success"
+      );
+      fetchAllAgreements();
+    } catch (error) {
+      Swal.fire("Error!", "Failed to accept agreement.", "error");
+      console.error("Error updating agreement:", error);
+    }
+  };
+
+  const handleReject = async (id) => {
+    try {
+      const response = await axiosSecure.patch(`/agreement/${id}`, {
+        action: "reject",
+      });
 
       if (response.status === 200) {
-        // If accepted, update the user's role
-        // if (action === "accept") {
-        //   await axiosSecure.patch(`/updateUserRole`, {
-        //     email,
-        //     role: "member",
-        //   });
-        // }
-
-        Swal.fire("Success!", "Agreement updated successfully.", "success");
+        Swal.fire("Rejected!", "Agreement has been rejected.", "info");
         fetchAllAgreements(); // Refresh data after update
       }
     } catch (error) {
-      Swal.fire("Error!", "Failed to update agreement.", "error");
-      console.error("Error updating agreement:", error);
+      Swal.fire("Error!", "Failed to reject agreement.", "error");
+      console.error("Error rejecting agreement:", error);
     }
   };
 
@@ -130,17 +140,13 @@ const AllAgreements = () => {
               </p>
               <div className="mt-6 flex justify-between">
                 <button
-                  onClick={() =>
-                    handleAction(agreement._id, "accept", agreement.userEmail)
-                  }
+                  onClick={() => handleAccept(agreement)}
                   className="btn btn-success text-white font-bold px-6 py-3 rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-300"
                 >
                   Accept
                 </button>
                 <button
-                  onClick={() =>
-                    handleAction(agreement._id, "reject", agreement.userEmail)
-                  }
+                  onClick={() => handleReject(agreement._id)}
                   className="btn btn-error text-white px-6 py-3 rounded-lg font-bold hover:bg-red-600 transform hover:scale-105 transition-all duration-300"
                 >
                   Reject

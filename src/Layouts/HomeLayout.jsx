@@ -4,6 +4,8 @@ import Footer from '../Components/Footer';
 import Banner from '../Components/Banner';
 import About from '../Components/About';
 import Coupon from '../Components/Coupon';
+import Googlemap from '../GoogleMap/GoogleMap';
+
 // import Map from '../Components/Map';
 const HomeLayout = () => {
     return (
@@ -24,7 +26,8 @@ const HomeLayout = () => {
                     <Coupon></Coupon>
                 </section>
                 <section>
-                    {/* <Map></Map> */}
+                    <Googlemap></Googlemap>
+                
                 </section>
 
             </main>

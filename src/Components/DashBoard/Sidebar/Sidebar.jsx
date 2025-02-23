@@ -95,11 +95,11 @@ const Sidebar = () => {
         <div>
           <hr />
 
-          <MenuItem
+          {/* <MenuItem
             icon={FcSettings}
             label='Profile'
             address='myProfile'
-          />
+          /> */}
           <MenuItem
             icon={FcSettings}
             label='Back To Home'
