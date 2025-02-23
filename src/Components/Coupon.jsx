@@ -36,6 +36,7 @@ const Coupon = () => {
           className="relative bg-gradient-to-r from-green-600 to-blue-500 text-white p-6 rounded-3xl shadow-2xl max-w-sm mx-auto text-center border-4 border-white"
         >
           <div className="text-2xl font-extrabold mb-2 ">🏡 {coupon.title}</div>
+          <div className="text-2xl font-extrabold mb-2 ">## {coupon.availability}</div>
           <p className="text-lg mb-4 ">
             {coupon.description} <br />
             <span className="text-yellow-400 font-bold text-3xl animate-pulse">
