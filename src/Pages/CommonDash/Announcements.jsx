@@ -39,14 +39,14 @@ const Announcements = () => {
       ) : announcements.length === 0 ? (
         <p className="text-center text-lg text-gray-400">No announcements available.</p>
       ) : (
-        <div className="grid ">
+        <div className="grid gap-4">
           {announcements.map((announcement) => (
             <div
               key={announcement._id}
               className="bg-white/20 backdrop-blur-lg shadow-xl p-6 rounded-tl-3xl rounded-br-3xl border border-white/10 hover:scale-105 transition-transform duration-300"
             >
               <h3 className="text-2xl font-semibold text-blue-400">{announcement.title}</h3>
-              <p className="text-gray-300 mt-3">{announcement.description}</p>
+              <p className="text-gray-400 mt-3">{announcement.description}</p>
               <p className="text-sm text-gray-500 mt-4">📅 {new Date(announcement.date).toLocaleDateString()}</p>
             </div>
           ))}

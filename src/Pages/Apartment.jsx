@@ -135,7 +135,7 @@ const Apartment = () => {
                 </h3>
                 <p>Apartment No: {apartment.apartment_no}</p>
                 <p>Rent: ${apartment.rent}</p>
-                <p className="font-bold text-green-600">{apartment.status}</p>
+                <p className="font-bold text-green-600">Status: {apartment.status}</p>
                 {/* Agreement Button */}
 
                 <button

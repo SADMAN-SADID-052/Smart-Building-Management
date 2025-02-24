@@ -1,35 +1,35 @@
-import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
-const Googlemap = () => {
-    // ✅ Map settings
-    const mapContainerStyle = { width: "100%", height: "350px" };
-    const apartmentLocation = { lat: 23.8103, lng: 90.4125 }; // Example: Dhaka, Bangladesh
+// Fix Leaflet marker issue
+const customIcon = new L.Icon({
+  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+  shadowSize: [41, 41],
+});
 
-    return (
-        <div className="container mx-auto p-6">
-            {/* Other sections of the Home Page */}
-            <section className="my-12 bg-gray-100 p-8 rounded-lg shadow-lg">
-                <h2 className="text-3xl font-bold text-center mb-4">📍 Find Us</h2>
-                <p className="text-lg text-gray-600 text-center">
-                    Our apartment is located in a prime area with easy access to public transport and major landmarks.  
-                    Below is the exact location:
-                </p>
+const MapComponent = () => {
+  const position = [23.9999, 90.4203]; 
 
-                {/* Google Map */}
-                <div className="mt-6">
-                    <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-                        <GoogleMap
-                            mapContainerStyle={mapContainerStyle}
-                            center={apartmentLocation}
-                            zoom={15}
-                        >
-                            <Marker position={apartmentLocation} />
-                        </GoogleMap>
-                    </LoadScript>
-                </div>
-            </section>
-        </div>
-    );
+  return (
+    <div className="container mx-auto p-6">
+      <h2 className="text-center text-xl font-bold mb-4">Location: Gazipur, Dhaka - Interactive Map</h2>
+      <MapContainer center={position} zoom={13} style={{ height: "400px", width: "100%" }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={position} icon={customIcon}>
+          <Popup>Gazipur, Dhaka, Bangladesh</Popup>
+        </Marker>
+      </MapContainer>
+    </div>
+  );
 };
 
-export default Googlemap;
+export default MapComponent;
