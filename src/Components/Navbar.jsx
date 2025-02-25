@@ -82,7 +82,7 @@ const Navbar = () => {
               src="https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
               alt="Logo"
             />
-            <a className="btn btn-ghost text-2xl font-bold">SmartBMS</a>
+            <a className="btn btn-ghost text-2xl font-bold">SmartHaven</a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

@@ -47,52 +47,31 @@ const AllAgreements = () => {
   };
 
   //  accept
-  // const handleAccept = async (agreement) => {
-  //   try {
-  //     const response = await axiosSecure.patch(`/agreement/${agreement._id}`, {
-  //       action: "accept",
-  //     });
-
-  //     Swal.fire(
-  //       "Success!",
-  //       "Agreement accepted and stored successfully.",
-  //       "success"
-  //     );
-  //     fetchAllAgreements();
-  //   } catch (error) {
-  //     Swal.fire("Error!", "Failed to accept agreement.", "error");
-  //     console.error("Error updating agreement:", error);
-  //   }
-  // };
-
   const handleAccept = async (agreement) => {
     try {
       const response = await axiosSecure.patch(`/agreement/${agreement._id}`, {
         action: "accept",
       });
-  
-      if (response.status === 200) {
-        // ✅ Update Apartment Status to "Checked"
-        await axiosSecure.patch(`/apartment/${agreement.apartmentNo}`, {
-          status: "Checked",
-        });
-  
-        Swal.fire("Success!", "Agreement accepted and apartment marked as Checked.", "success");
-        fetchAllAgreements(); // Refresh agreements list
-      }
+
+      Swal.fire(
+        "Success!",
+        "Agreement accepted and stored successfully.",
+        "success"
+      );
+      fetchAllAgreements();
     } catch (error) {
       Swal.fire("Error!", "Failed to accept agreement.", "error");
       console.error("Error updating agreement:", error);
     }
   };
-  
 
+  
   const handleReject = async (id) => {
     try {
       const response = await axiosSecure.patch(`/agreement/${id}`, {
         action: "reject",
       });
-
+  
       if (response.status === 200) {
         Swal.fire("Rejected!", "Agreement has been rejected.", "info");
         fetchAllAgreements(); // Refresh data after update

@@ -1,8 +1,31 @@
-# React + Vite
+# SmartHaven - Building Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Demo
+🔗 **Live Site URL:** [Insert your live site link here]
 
-Currently, two official plugins are available:
+## Admin Credentials
+👤 **Username:** [Insert Admin Username]  
+🔑 **Password:** [Insert Admin Password]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+**SmartHaven** is an advanced **Building Management System (BMS)** designed to simplify apartment management, tenant interactions, and administrative tasks. It offers a secure and efficient platform for property owners, tenants, and administrators to manage agreements, payments, and announcements.
+
+## Key Features
+- 🏠 **Apartment Listing & Search** – Browse available apartments with filters for rent and location.
+- ✍️ **Agreement Management** – Request and manage rental agreements.
+- 👥 **Role-Based Access Control** – Separate functionalities for users, members, and admins.
+- 💰 **Online Rent Payments** – Secure payment system with coupon discounts.
+- 📢 **Announcements Section** – Admins can post important updates.
+- 🔒 **Secure Authentication** – Firebase authentication with JWT-based security.
+- 📊 **Admin Dashboard** – Manage members, payments,  building announcement and agreement request.
+- 🔍 **Search & Pagination** – Efficient search for apartments and users.
+- 📜 **Payment History** – Tenants can track past transactions.
+- 📱 **Fully Responsive** – Works seamlessly on mobile, tablet, and desktop.
+
+## Tech Stack
+- **Frontend:** React.js, Tailwind CSS, Daisy UI
+- **Backend:** Node.js, Express.js, MongoDB
+- **Authentication:** Firebase, JWT
+- **State Management & Data Fetching:** TanStack Query
+- **Deployment:** Netlify (Frontend), Vercel (Backend)
+

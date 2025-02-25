@@ -18,18 +18,16 @@ const Footer = () => {
                 <img className='w-20' src="https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
               
               <span className="ml-2 text-2xl font-bold tracking-wide text-gray-800">
-              SmartBMS
+              SmartHaven
               </span>
             </a>
             <div className="mt-6 lg:max-w-sm">
               <p className="text-sm text-gray-800">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam.
+              SmartHaven is an advanced Building Management System (BMS) designed to streamline apartment rental, tenant management, and administrative operations. 
               </p>
-              <p className="mt-4 text-sm text-gray-800">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.
-              </p>
+            
+             
+             
             </div>
           </div>
           <div className="space-y-2 text-sm">
@@ -104,14 +102,13 @@ const Footer = () => {
               </a>
             </div>
             <p className="mt-4 text-sm text-gray-500">
-              Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-              spare ribs salami.
+            SmartHaven is an advanced Building Management System (BMS) designed to streamline apartment rental, tenant management, and administrative operations.
             </p>
           </div>
         </div>
         <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
           <p className="text-sm text-gray-600">
-            © Copyright 2020 Lorem Inc. All rights reserved.
+            © Copyright 2025, SmartHaven. All rights reserved.
           </p>
           <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>
