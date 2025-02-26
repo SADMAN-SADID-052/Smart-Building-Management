@@ -15,7 +15,7 @@ const MakeAnnouncement = () => {
         const announcementData = { title, description };
 
         try {
-            const response = await axios.post("http://localhost:5000/announcements", announcementData);
+            const response = await axios.post("https://building-management-server-nu.vercel.app/announcements", announcementData);
             if (response.status === 201) {
                 Swal.fire({
                     icon: "success",

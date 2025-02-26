@@ -88,7 +88,7 @@ const handlePayment = async () => {
         originalRent: selectedAgreement.rent,
         discountApplied: discount > 0 ? discount : "Not Applied",
         finalRentPaid: finalRent,
-        paymentDate: new Date().toISOString(), // Store payment timestamp
+        paymentDate: new Date().toISOString(), 
     };
 
     try {

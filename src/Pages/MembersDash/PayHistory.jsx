@@ -11,7 +11,7 @@ const PayHistory = () => {
 
     useEffect(() => {
         const fetchPayments = async () => {
-            if (!user?.email) return; 
+            if (!user?.email) return;
 
             try {
                 const response = await axiosSecure.get(`/payments/${user.email}`);
@@ -24,47 +24,51 @@ const PayHistory = () => {
         };
 
         fetchPayments();
-    }, [user?.email, axiosSecure]); // Add dependencies
+    }, [user?.email, axiosSecure]);
 
     return (
-        <div className="container mx-auto p-5">
-            <h2 className="text-2xl font-semibold mb-4">Payment History</h2>
+        <div className="container mx-auto p-6">
+            <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">Payment History</h2>
 
             {loading ? (
-                <p>Loading...</p>
+                <div className="flex justify-center">
+                    <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-blue-500"></div>
+                </div>
             ) : error ? (
-                <p className="text-red-500">{error}</p>
+                <p className="text-red-500 text-center">{error}</p>
             ) : payments.length === 0 ? (
-                <p>No payment records found.</p>
+                <p className="text-gray-500 text-center">No payment records found.</p>
             ) : (
-                <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                        <tr className="bg-gray-200">
-                            <th className="border border-gray-300 p-2">Email</th>
-                            <th className="border border-gray-300 p-2">Apartment</th>
-                            <th className="border border-gray-300 p-2">Floor</th>
-                            <th className="border border-gray-300 p-2">Block</th>
-                            <th className="border border-gray-300 p-2">Original Rent</th>
-                            <th className="border border-gray-300 p-2">Discount</th>
-                            <th className="border border-gray-300 p-2">Final Paid</th>
-                            <th className="border border-gray-300 p-2">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {payments.map((payment, index) => (
-                            <tr key={index} className="text-center">
-                                   <td className="border border-gray-300 p-2">{payment.userEmail}</td>
-                                <td className="border border-gray-300 p-2">{payment.apartmentNo}</td>
-                                <td className="border border-gray-300 p-2">{payment.floor}</td>
-                                <td className="border border-gray-300 p-2">{payment.block}</td>
-                                <td className="border border-gray-300 p-2">${payment.originalRent}</td>
-                                <td className="border border-gray-300 p-2">${payment.discountApplied}</td>
-                                <td className="border border-gray-300 p-2">${payment.finalRentPaid}</td>
-                                <td className="border border-gray-300 p-2">{new Date(payment.paymentDate).toLocaleDateString()}</td>
+                <div className="overflow-x-auto">
+                    <table className="w-full border-collapse shadow-lg rounded-lg overflow-hidden">
+                        <thead>
+                            <tr className="bg-blue-600 text-white">
+                                <th className="p-3">Email</th>
+                                <th className="p-3">Apartment</th>
+                                <th className="p-3">Floor</th>
+                                <th className="p-3">Block</th>
+                                <th className="p-3">Original Rent</th>
+                                <th className="p-3">Discount</th>
+                                <th className="p-3">Final Paid</th>
+                                <th className="p-3">Date</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-300">
+                            {payments.map((payment, index) => (
+                                <tr key={index} className="text-center hover:bg-gray-100">
+                                    <td className="p-3">{payment.userEmail}</td>
+                                    <td className="p-3">{payment.apartmentNo}</td>
+                                    <td className="p-3">{payment.floor}</td>
+                                    <td className="p-3">{payment.block}</td>
+                                    <td className="p-3 text-green-600 font-semibold">${payment.originalRent}</td>
+                                    <td className="p-3 text-red-500">${payment.discountApplied}</td>
+                                    <td className="p-3 text-blue-600 font-bold">${payment.finalRentPaid}</td>
+                                    <td className="p-3">{new Date(payment.paymentDate).toLocaleDateString()}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );

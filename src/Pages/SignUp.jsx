@@ -78,7 +78,7 @@ const SignUp = () => {
             if(res.insertedId)
             {
               
-              console.log('user added to the database')
+              // console.log('user added to the database')
               setUser(user);
 
               toast.success('Registration Successful!', {
@@ -97,7 +97,7 @@ const SignUp = () => {
               
             }
            })
-          console.log('user Profile info updated')
+          // console.log('user Profile info updated')
         })
       
         
@@ -105,7 +105,7 @@ const SignUp = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        // console.log(errorCode, errorMessage);
       });
   };
     return (

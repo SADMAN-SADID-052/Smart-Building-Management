@@ -42,6 +42,7 @@ import PayHistory from './Pages/MembersDash/PayHistory.jsx';
 import MakeAnnounce from './Pages/AdminDash/MakeAnnounce.jsx';
 import ManageMembers from './Pages/AdminDash/ManageMembers.jsx';
 import AdminProfile from './Pages/AdminDash/AdminProfile.jsx';
+import MembersProfile from './Pages/MembersDash/MembersProfile.jsx';
 
 
 const queryClient = new QueryClient()
@@ -182,6 +183,15 @@ const router = createBrowserRouter([
 
          <MemberRoute>
          <PayHistory></PayHistory>
+         </MemberRoute>
+        </PrivateRoute>)
+      },
+      {
+        path:'memberProfile',
+        element:(<PrivateRoute>
+
+         <MemberRoute>
+        <MembersProfile></MembersProfile>
          </MemberRoute>
         </PrivateRoute>)
       }

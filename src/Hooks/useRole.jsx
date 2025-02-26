@@ -16,7 +16,7 @@ const useRole = () => {
             return data.role
         }
     })
-    console.log(role)
+    // console.log(role)
     return [role, setLoading]
 };
 

@@ -36,11 +36,11 @@ const handleGoogleLogin = () =>{
 
     axiosPublic.post('/users',userInfo)
     .then(res => {
-      console.log(res.data);
+      // console.log(res.data);
     })
 
     navigate(location?.state  ? location.state : "/");
-    console.log(result.user)
+    // console.log(result.user)
 
     toast.success("Login Successful!", {
       position: "top-center",
@@ -58,7 +58,7 @@ const handleGoogleLogin = () =>{
 
   .catch(error =>{
 
-    console.log('error',error)
+    // console.log('error',error)
   })
 
 }

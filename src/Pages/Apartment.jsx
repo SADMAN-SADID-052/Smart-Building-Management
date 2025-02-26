@@ -23,7 +23,7 @@ const Apartment = () => {
   const fetchApartments = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5000/apartment`, {
+      const response = await axios.get(`https://building-management-server-nu.vercel.app/apartment`, {
         params: { page, minRent, maxRent },
       });
       setApartments(response.data.apartments);
@@ -50,7 +50,7 @@ const Apartment = () => {
     };
 
     try {
-        const response = await axios.post('http://localhost:5000/agreement', agreementData);
+        const response = await axios.post('https://building-management-server-nu.vercel.app/agreement', agreementData);
         if (response.status === 201) {
             Swal.fire({
                 icon: "success",
