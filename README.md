@@ -4,8 +4,8 @@
 🔗 **Live Site URL:** [https://assignment-12-514e2.web.app/]
 
 ## Admin Credentials
-👤 **Email:** [admin@gmail.com]  
-🔑 **Password:** [Strong@1]
+👤 **Email:** admin@gmail.com  
+🔑 **Password:** Strong@1
 
 ## Overview
 **SmartHaven** is an advanced **Building Management System (BMS)** designed to simplify apartment management, tenant interactions, and administrative tasks. It offers a secure and efficient platform for property owners, tenants, and administrators to manage agreements, payments, and announcements.
