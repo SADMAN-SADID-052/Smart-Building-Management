@@ -1,11 +1,11 @@
 # SmartHaven - Building Management System
 
 ## Live Demo
-🔗 **Live Site URL:** [Insert your live site link here]
+🔗 **Live Site URL:** [https://assignment-12-514e2.web.app/]
 
 ## Admin Credentials
-👤 **Username:** [Insert Admin Username]  
-🔑 **Password:** [Insert Admin Password]
+👤 **Email:** [admin@gmail.com]  
+🔑 **Password:** [Strong@1]
 
 ## Overview
 **SmartHaven** is an advanced **Building Management System (BMS)** designed to simplify apartment management, tenant interactions, and administrative tasks. It offers a secure and efficient platform for property owners, tenants, and administrators to manage agreements, payments, and announcements.
@@ -27,5 +27,5 @@
 - **Backend:** Node.js, Express.js, MongoDB
 - **Authentication:** Firebase, JWT
 - **State Management & Data Fetching:** TanStack Query
-- **Deployment:** Netlify (Frontend), Vercel (Backend)
+- **Deployment:** Firebase (Frontend), Vercel (Backend)
 
