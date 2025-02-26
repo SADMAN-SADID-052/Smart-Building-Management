@@ -3,6 +3,8 @@ import useRole from "../../Hooks/useRole";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Loading from "../Loading";
 import { useState, useEffect, useContext } from "react";
+import { Helmet } from "react-helmet-async";
+
 
 const MembersProfile = () => {
   const { user, loading } = useContext(AuthContext);
@@ -80,6 +82,10 @@ const MembersProfile = () => {
           )}
         </div>
       </div>
+          <Helmet>
+        <title>Member Profile | Building Management</title>
+     
+      </Helmet>
     </div>
   );
 };

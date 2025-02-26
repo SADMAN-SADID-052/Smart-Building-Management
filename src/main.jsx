@@ -18,7 +18,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { APIProvider } from '@vis.gl/react-google-maps';
 import { googleMapAPIKey } from './GoogleMap/map-api-key.js';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
-// import DashBoard from './Layouts/DashBoard.jsx';
+
+import { HelmetProvider } from 'react-helmet-async';
 
 import DashBoardLayout from './Layouts/DashBoardLayout.jsx';
 
@@ -28,7 +29,7 @@ import AgreementReq from './Pages/AdminDash/AgreementReq.jsx';
 import Profile from './Pages/CommonDash/Profile.jsx';
 import MakePay from './Pages/MembersDash/MakePay.jsx';
 import ManageCoupons from './Pages/AdminDash/ManageCoupons.jsx';
-// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 
 import {
   QueryClient,
@@ -208,34 +209,26 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<AuthProvider>
-
-
-<QueryClientProvider client={queryClient}>
-<RouterProvider router={router} />
-    </QueryClientProvider>
-
-
-
-
-<ToastContainer
-position="top-center"
-autoClose={3000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="colored"
-
-/>
-
-<APIProvider apiKey={googleMapAPIKey}></APIProvider>
-</AuthProvider>
-
-
+   <HelmetProvider>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+        <APIProvider apiKey={googleMapAPIKey}></APIProvider>
+      </AuthProvider>
+    </HelmetProvider>
 
 
 

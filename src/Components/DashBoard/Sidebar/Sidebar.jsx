@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
-import { FcSettings } from 'react-icons/fc'
+import { FaHome } from "react-icons/fa";
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
 import MenuItem from './Menu/MenuItem'
@@ -101,7 +101,7 @@ const Sidebar = () => {
             address='myProfile'
           /> */}
           <MenuItem
-            icon={FcSettings}
+            icon={FaHome}
             label='Back To Home'
             address='/'
           />

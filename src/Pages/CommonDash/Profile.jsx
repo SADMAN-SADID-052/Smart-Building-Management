@@ -1,21 +1,22 @@
+
 import useAuth from '../../Hooks/useAuth'
 import useRole from '../../Hooks/useRole'
-import Loading from '../Loading'
-// import { Helmet } from 'react-helmet-async'
-// import coverImg from '../../../assets/images/cover.jpg'
+import { Helmet } from "react-helmet-async";
+
+
 const Profile = () => {
   const { user,loading } = useAuth()
   const [role,setLoading] = useRole()
 
-  // if({loading, setLoading}) return <Loading></Loading>
-  // console.log(role)
 
-  // console.log(user)
+
+ 
   return (
     <div className='flex justify-center items-center h-screen'>
-      {/* <Helmet>
-        <title>Profile</title>
-      </Helmet> */}
+     <Helmet>
+  <title>User Profile | Apartment Management</title>
+  <meta name="description" content="View and update your profile details in the Apartment Management System." />
+</Helmet>
       <div className='bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5'>
         <img
           alt='cover photo'

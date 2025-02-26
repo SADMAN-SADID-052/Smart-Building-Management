@@ -1,7 +1,7 @@
 import { FaUserCog } from "react-icons/fa";
 import { BiSolidCoupon } from "react-icons/bi";
 import { BiAlarmExclamation } from "react-icons/bi";
-import { FcSettings } from "react-icons/fc";
+import { CgProfile } from "react-icons/cg";
 import MenuItem from "./MenuItem";
 
 const AdminMenu = () => {
@@ -27,7 +27,7 @@ const AdminMenu = () => {
         label=" Make Announcement"
         address="makeAnnounce"
       />
-      <MenuItem icon={FcSettings} label="Profile" address="adminProfile" />
+      <MenuItem icon={CgProfile} label="Profile" address="adminProfile" />
     </>
   );
 };
