@@ -1,70 +1,62 @@
-
-import useAuth from '../../Hooks/useAuth'
-import useRole from '../../Hooks/useRole'
+import useAuth from '../../Hooks/useAuth';
+import useRole from '../../Hooks/useRole';
 import { Helmet } from "react-helmet-async";
 
-
 const Profile = () => {
-  const { user,loading } = useAuth()
-  const [role,setLoading] = useRole()
+  const { user, loading } = useAuth();
+  const [role, setLoading] = useRole();
 
-
-
- 
   return (
-    <div className='flex justify-center items-center h-screen'>
-     <Helmet>
-  <title>User Profile | Apartment Management</title>
-  <meta name="description" content="View and update your profile details in the Apartment Management System." />
-</Helmet>
-      <div className='bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-3/5'>
-        <img
-          alt='cover photo'
-          src=""
-          className='w-full mb-4 rounded-t-lg h-56'
-        />
-        <div className='flex flex-col items-center justify-center p-4 -mt-16'>
-          <a href='#' className='relative block'>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-lime-400 to-blue-500 p-6">
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>User Profile | Apartment Management</title>
+        <meta name="description" content="View and update your profile details in the Apartment Management System." />
+      </Helmet>
+
+      <div className="bg-white shadow-2xl rounded-2xl md:w-4/5 lg:w-3/5 overflow-hidden transform transition duration-500 hover:scale-105">
+        {/* Cover Image */}
+        <div className="relative w-full h-40 bg-gradient-to-r from-green-500 to-lime-400 flex items-center justify-center">
+          <h2 className="text-white text-2xl font-bold shadow-lg">Welcome, {user?.displayName || "User"}!</h2>
+        </div>
+
+        <div className="flex flex-col items-center -mt-12">
+          <a href="#" className="relative block">
             <img
-              alt='profile'
-              src={user.photoURL}
-              className='mx-auto object-cover rounded-full h-24 w-24  border-2 border-white '
+              alt="Profile"
+              src={user?.photoURL || "/default-avatar.png"}
+              className="mx-auto object-cover rounded-full h-24 w-24 border-4 border-white shadow-md transition-transform transform hover:scale-110"
             />
           </a>
 
-          <p className='p-2 px-4 text-xs text-black bg-lime-500 rounded-full'>
-           {role}
+          <p className="mt-3 px-4 text-sm font-semibold  bg-lime-600 rounded-full py-1 shadow-lg uppercase">
+            {role || "User"}
           </p>
-          <p className='mt-2 text-xl font-medium text-gray-800 '>
-            User Id: {user.uid}
-          </p>
-          <div className='w-full p-2 mt-4 rounded-lg'>
-            <div className='flex flex-wrap items-center justify-between text-sm text-gray-600 '>
-              <p className='flex flex-col'>
-                Name
-                <span className='font-bold text-black '>
-                  {user.displayName}
-                </span>
-              </p>
-              <p className='flex flex-col'>
-                Email
-                <span className='font-bold text-black '>{user.email}</span>
-              </p>
 
-              <div>
-                <button className='bg-lime-500 px-10 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800 block mb-1'>
-                  Update Profile
-                </button>
-                <button className='bg-lime-500 px-7 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800'>
-                  Change Password
-                </button>
+          <h2 className="mt-3 text-2xl font-bold text-gray-800">{user?.displayName || "Anonymous"}</h2>
+          <p className="text-sm text-gray-600">{user?.email || "Not Available"}</p>
+
+          {/* User Info Section */}
+          <div className="mt-5 w-full px-6">
+            <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-2">
+              <div className="flex justify-between text-sm text-gray-600 p-2">
+                <p className="flex flex-col">
+                  <span className="text-gray-500">User Name</span>
+                  <span className="font-semibold text-black">{user?.displayName || "N/A"}</span>
+                </p>
+                <p className="flex flex-col">
+                  <span className="text-gray-500">Email</span>
+                  <span className="font-semibold text-black">{user?.email}</span>
+                </p>
               </div>
             </div>
           </div>
+
+       
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Profile;

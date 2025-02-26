@@ -1,17 +1,22 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
+import React, { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut} = useContext(AuthContext); // Get user and logout from context
+  const { user, logOut } = useContext(AuthContext); // Get user and logout from context
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-
 
   const links = (
     <>
       <li>
-        <NavLink className="flex items-center btn btn-outline" to="/">
+        <NavLink
+          className={({ isActive }) =>
+            `flex items-center btn btn-outline ${
+              isActive ? "bg-blue-500 text-white" : ""
+            }`
+          }
+          to="/"
+        >
           <img
             className="w-5"
             src="https://img.icons8.com/?size=96&id=80347&format=png"
@@ -22,7 +27,11 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className="flex items-center btn btn-outline ml-2"
+          className={({ isActive }) =>
+            `flex items-center btn btn-outline ml-2 ${
+              isActive ? "bg-blue-500 text-white" : ""
+            }`
+          }
           to="/apartment"
         >
           <img
@@ -43,17 +52,13 @@ const Navbar = () => {
         style={{
           backgroundImage:
             "url('https://img.freepik.com/free-vector/watercolor-blue-sky-clouds-background_23-2147504592.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="navbar-start">
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost lg:hidden"
-            >
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -94,7 +99,7 @@ const Navbar = () => {
               <img
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="w-10 h-10 rounded-full cursor-pointer"
-                src={user.photoURL || 'https://via.placeholder.com/150'}
+                src={user.photoURL || "https://via.placeholder.com/150"}
                 alt="Profile"
               />
               {dropdownOpen && (
@@ -103,10 +108,7 @@ const Navbar = () => {
                     {user.displayName}
                   </div>
                   <hr />
-                  <Link
-                    to="/dashboard"
-                    className="btn btn-accent"
-                  >
+                  <Link to="/dashboard" className="btn btn-accent">
                     Dashboard
                   </Link>
                   <button

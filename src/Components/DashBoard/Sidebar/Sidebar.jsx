@@ -95,11 +95,7 @@ const Sidebar = () => {
         <div>
           <hr />
 
-          {/* <MenuItem
-            icon={FcSettings}
-            label='Profile'
-            address='myProfile'
-          /> */}
+        
           <MenuItem
             icon={FaHome}
             label='Back To Home'

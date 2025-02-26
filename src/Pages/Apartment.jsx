@@ -90,7 +90,7 @@ const Apartment = () => {
         </header>
 
         <main className="p-4">
-          <h2 className="text-3xl font-bold text-center my-6">
+          <h2 className="text-3xl font-bold text-center my-6 mt-24">
             Available Apartments
           </h2>
 
@@ -110,12 +110,7 @@ const Apartment = () => {
               value={maxRent}
               onChange={(e) => setMaxRent(e.target.value)}
             />
-            <button
-              onClick={fetchApartments}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Search
-            </button>
+
           </div>
 
           
