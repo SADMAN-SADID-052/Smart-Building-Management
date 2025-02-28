@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
 
@@ -53,6 +54,11 @@ const SignUp = () => {
           timerProgressBar: true,
           showConfirmButton: false,
         });
+
+        e.target.reset();
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
         updateUserProfile(name, photo).then(() => {
           //  create user entry in the database
 
@@ -66,10 +72,7 @@ const SignUp = () => {
             if (res.insertedId) {
               setUser(user);
 
-              e.target.reset();
-              setTimeout(() => {
-                navigate("/");
-              }, 2000);
+             
             }
           });
         });
@@ -151,6 +154,11 @@ const SignUp = () => {
           </div>
         </section>
       </div>
+
+      <Helmet>
+        <title>SignUp | Building Management</title>
+        
+      </Helmet>
     </div>
   );
 };

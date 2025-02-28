@@ -98,24 +98,31 @@ const Navbar = () => {
             <div className="relative">
               <img
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-10 h-10 rounded-full cursor-pointer"
+                className="w-12 h-12 rounded-full cursor-pointer border-b-blue-500 border-t-blue-500 border-2"
                 src={user.photoURL || "https://via.placeholder.com/150"}
                 alt="Profile"
               />
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
-                  <div className="px-4 py-2 text-sm text-gray-700">
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20 p-2">
+                  <div className="px-4 py-2 text-sm text-gray-700 font-bold text-center">
                     {user.displayName}
                   </div>
                   <hr />
-                  <Link to="/dashboard" className="btn btn-accent">
-                    Dashboard
+                  <Link to="/dashboard" className="btn btn-error w-full mt-2 hover:bg-black">
+                   <div className="flex gap-1 items-center">
+                    <img className="w-5" src="https://cdn-icons-png.freepik.com/256/16596/16596825.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
+                    <p className="text-white ">Dashboard</p>
+                   </div>
                   </Link>
                   <button
                     onClick={logOut}
-                    className="w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-gray-100"
+                    className="w-full text-left px-4 py-2 text-sm text-white hover:bg-black font-bold btn btn-primary mt-2"
                   >
-                    Logout
+                    <div className="flex items-center gap-1">
+                      <img className="w-5" src="https://cdn-icons-png.freepik.com/256/10977/10977462.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
+                      <p>Logout</p>
+                    </div>
+                   
                   </button>
                 </div>
               )}
@@ -123,8 +130,8 @@ const Navbar = () => {
           ) : (
             <Link to="/auth/login">
               <img
-                className="w-10"
-                src="https://cdn-icons-png.freepik.com/256/10254/10254322.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                className="w-28 rounded-4xl"
+                src="https://img.freepik.com/premium-vector/black-red-sign-that-sayslogitechon-it_614034-22766.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
                 alt="Login"
               />
             </Link>

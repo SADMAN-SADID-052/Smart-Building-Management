@@ -13,7 +13,9 @@ const AuthLayout = () => {
             <Navbar></Navbar>
         </header>
 
-        <Outlet></Outlet>
+       <div>
+       <Outlet></Outlet>
+       </div>
         </div>
 
        
