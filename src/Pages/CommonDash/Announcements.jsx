@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Announcements = () => {
   const axiosSecure = useAxiosSecure();
@@ -35,9 +36,13 @@ const Announcements = () => {
       </h2>
 
       {loading ? (
-        <p className="text-center text-lg text-gray-400">Loading announcements...</p>
+        <p className="text-center text-lg text-gray-400">
+          Loading announcements...
+        </p>
       ) : announcements.length === 0 ? (
-        <p className="text-center text-lg text-gray-400">No announcements available.</p>
+        <p className="text-center text-lg text-gray-400">
+          No announcements available.
+        </p>
       ) : (
         <div className="grid gap-4">
           {announcements.map((announcement) => (
@@ -45,13 +50,22 @@ const Announcements = () => {
               key={announcement._id}
               className="bg-white/20 backdrop-blur-lg shadow-xl p-6 rounded-tl-3xl rounded-br-3xl border border-white/10 hover:scale-105 transition-transform duration-300"
             >
-              <h3 className="text-2xl font-semibold text-blue-400">{announcement.title}</h3>
+              <h3 className="text-2xl font-semibold text-blue-400">
+                {announcement.title}
+              </h3>
               <p className="text-gray-400 mt-3">{announcement.description}</p>
-              <p className="text-sm text-gray-500 mt-4">📅 {new Date(announcement.date).toLocaleDateString()}</p>
+              <p className="text-sm text-gray-500 mt-4">
+                📅 {new Date(announcement.date).toLocaleDateString()}
+              </p>
             </div>
           ))}
         </div>
       )}
+
+      <Helmet>
+        <title>Announcements | SmartHaven</title>
+    
+      </Helmet>
     </div>
   );
 };

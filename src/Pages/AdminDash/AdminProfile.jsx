@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import useRole from "../../Hooks/useRole";
 import Loading from "../Loading";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AdminProfile = () => {
   const { user, loading } = useAuth();
@@ -44,7 +45,7 @@ const AdminProfile = () => {
     const fetchTotalMembers = async () => {
       try {
         const response = await axiosSecure("/total-member");
-      
+
         setTotalMembers(response.data.totalMembers); // Fetch members from here too
       } catch (error) {
         console.error("Failed to fetch the total number of users:", error);
@@ -58,7 +59,7 @@ const AdminProfile = () => {
     const fetchAvailableRooms = async () => {
       try {
         // const response = await axiosSecure("/available-room");
-      
+
         setAvailable(response.data.available);
       } catch (error) {
         console.error("Failed to fetch the total number of users:", error);
@@ -72,7 +73,9 @@ const AdminProfile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-700 p-6">
-      <h2 className="text-5xl font-extrabold text-white drop-shadow-lg">Admin Panel</h2>
+      <h2 className="text-5xl font-extrabold text-white drop-shadow-lg">
+        Admin Panel
+      </h2>
       <div className="flex justify-center items-center w-full mt-10">
         <div className="bg-white/20 backdrop-blur-md shadow-xl rounded-3xl p-8 w-full max-w-4xl">
           <div className="flex flex-col items-center justify-center mt-10">
@@ -92,36 +95,64 @@ const AdminProfile = () => {
               <div className="grid grid-cols-2 gap-6 text-center">
                 <div className="bg-white/30 p-6 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
                   <p className="text-lg font-semibold text-gray-100">Name</p>
-                  <span className="text-2xl font-bold text-white">{user.displayName}</span>
+                  <span className="text-2xl font-bold text-white">
+                    {user.displayName}
+                  </span>
                 </div>
                 <div className="bg-white/30 p-6 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
                   <p className="text-lg font-semibold text-gray-100">Email</p>
-                  <span className="text-lg font-semibold text-white">{user.email}</span>
+                  <span className="text-lg font-semibold text-white">
+                    {user.email}
+                  </span>
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div className="bg-white/30 p-6 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                  <p className="text-lg font-semibold text-gray-100">Total Rooms</p>
-                  <span className="text-3xl font-bold text-white">{totalApartments ?? "..."}</span>
+                  <p className="text-lg font-semibold text-gray-100">
+                    Total Rooms
+                  </p>
+                  <span className="text-3xl font-bold text-white">
+                    {totalApartments ?? "..."}
+                  </span>
                 </div>
                 <div className="bg-white/30 p-6 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                  <p className="text-lg font-semibold text-gray-100">Total Users</p>
-                  <span className="text-3xl font-bold text-white">{totalUsers ?? "..."}</span>
+                  <p className="text-lg font-semibold text-gray-100">
+                    Total Users
+                  </p>
+                  <span className="text-3xl font-bold text-white">
+                    {totalUsers ?? "..."}
+                  </span>
                 </div>
                 <div className="bg-white/30 p-6 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                  <p className="text-lg font-semibold text-gray-100">Total Members</p>
-                  <span className="text-3xl font-bold text-white">{totalMembers ?? "..."}</span>
+                  <p className="text-lg font-semibold text-gray-100">
+                    Total Members
+                  </p>
+                  <span className="text-3xl font-bold text-white">
+                    {totalMembers ?? "..."}
+                  </span>
                 </div>
                 <div className="bg-white/30 p-6 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
-                  <p className="text-lg font-semibold text-gray-100">Available Rooms</p>
-                  <span className="text-3xl font-bold text-white">{available ?? "..."}</span>
+                  <p className="text-lg font-semibold text-gray-100">
+                    Available Rooms
+                  </p>
+                  <span className="text-3xl font-bold text-white">
+                    {available ?? "..."}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Helmet>
+        <title>Admin | SmartHaven</title>
+        <meta
+          name="description"
+          content="View and update your profile details in the Apartment Management System."
+        />
+      </Helmet>
     </div>
   );
 };

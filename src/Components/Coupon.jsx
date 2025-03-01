@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ClipboardCopy, CheckCircle } from "lucide-react";
 import Swal from "sweetalert2"; // Import SweetAlert
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Slide } from "react-awesome-reveal";
 
 const Coupon = () => {
   const axiosSecure = useAxiosSecure();
@@ -41,8 +42,17 @@ const Coupon = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-5 min-h-screen bg-gray-100">
-      {coupons.map((coupon) => (
+ <div className="">
+
+     <div className="text-center  bg-blue-300 rounded-2xl p-2 w-1/2 mx-auto mt-4 mb-4">
+      <p className="text-2xl font-bold ">Coupons</p>
+     </div>
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-5 min-h-screen  bg-gray-100">
+      
+     <Slide>
+
+     {coupons.map((coupon) => (
+        
         <div
           key={coupon.id}
           className={`relative text-white p-6 rounded-3xl shadow-2xl max-w-sm mx-auto text-center border-4 ${
@@ -84,7 +94,10 @@ const Coupon = () => {
           </div>
         </div>
       ))}
+     </Slide>
+     
     </div>
+ </div>
   );
 };
 

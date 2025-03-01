@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Apartment = () => {
   const [apartments, setApartments] = useState([]);
@@ -164,6 +165,10 @@ const Apartment = () => {
               Next
             </button>
           </div>
+          <Helmet>
+        <title>Apartment | SmartHaven</title>
+        <meta name="description" content="View and update your profile details in the Apartment Management System." />
+      </Helmet>
         </main>
       </div>
 

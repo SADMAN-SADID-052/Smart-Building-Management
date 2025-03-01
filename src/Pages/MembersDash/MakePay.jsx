@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-
+import { Helmet } from "react-helmet-async";
 const MakePayment = () => {
   const [agreements, setAgreements] = useState([]);
   const { user } = useContext(AuthContext);
@@ -79,34 +79,38 @@ const MakePayment = () => {
 
   // Handle payment submission
 
-const handlePayment = async () => {
+  const handlePayment = async () => {
     const paymentData = {
-        userEmail: selectedAgreement.userEmail,
-        apartmentNo: selectedAgreement.apartmentNo,
-        floor: selectedAgreement.floor,
-        block: selectedAgreement.block,
-        originalRent: selectedAgreement.rent,
-        discountApplied: discount > 0 ? discount : "Not Applied",
-        finalRentPaid: finalRent,
-        paymentDate: new Date().toISOString(), 
+      userEmail: selectedAgreement.userEmail,
+      apartmentNo: selectedAgreement.apartmentNo,
+      floor: selectedAgreement.floor,
+      block: selectedAgreement.block,
+      originalRent: selectedAgreement.rent,
+      discountApplied: discount > 0 ? discount : "Not Applied",
+      finalRentPaid: finalRent,
+      paymentDate: new Date().toISOString(),
     };
 
     try {
-        const response = await axiosSecure.post("/payments", paymentData);
+      const response = await axiosSecure.post("/payments", paymentData);
 
-        if (response.status === 200) {
-            Swal.fire("Payment Successful!", "Your rent has been paid successfully.", "success");
+      if (response.status === 200) {
+        Swal.fire(
+          "Payment Successful!",
+          "Your rent has been paid successfully.",
+          "success"
+        );
 
-            // Close modal after success
-            setIsModalOpen(false);
+        // Close modal after success
+        setIsModalOpen(false);
 
-            // Add this agreement to the paid list
-            setPaidAgreements([...paidAgreements, selectedAgreement._id]);
-        }
+        // Add this agreement to the paid list
+        setPaidAgreements([...paidAgreements, selectedAgreement._id]);
+      }
     } catch (error) {
-        Swal.fire("Error!", "Payment failed. Please try again.", "error");
+      Swal.fire("Error!", "Payment failed. Please try again.", "error");
     }
-};
+  };
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center p-4"
@@ -260,6 +264,11 @@ const handlePayment = async () => {
           </div>
         </div>
       )}
+
+      <Helmet>
+        <title>Make Payment | SmartHaven</title>
+      
+      </Helmet>
     </div>
   );
 };

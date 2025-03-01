@@ -10,7 +10,7 @@ const Profile = () => {
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-lime-400 to-blue-500 p-6">
       {/* React Helmet for SEO */}
       <Helmet>
-        <title>User Profile | Apartment Management</title>
+        <title>User Profile | SmartHaven</title>
         <meta name="description" content="View and update your profile details in the Apartment Management System." />
       </Helmet>
 

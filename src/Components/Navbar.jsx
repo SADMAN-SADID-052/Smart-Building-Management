@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Typewriter } from 'react-simple-typewriter';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext); // Get user and logout from context
@@ -87,7 +88,19 @@ const Navbar = () => {
               src="https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
               alt="Logo"
             />
-            <a className="btn btn-ghost text-2xl font-bold">SmartHaven</a>
+            <a className="btn btn-ghost text-2xl font-bold">
+            <span style={{ color: 'purple', fontWeight: 'bold' }}>
+        <Typewriter
+          words={['SmartHaven']}
+          loop={true}
+          cursor
+          cursorStyle="_"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={2000}
+        />
+      </span>
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

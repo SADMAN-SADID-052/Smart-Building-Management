@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllAgreements = () => {
   const axiosSecure = useAxiosSecure();
@@ -28,7 +29,6 @@ const AllAgreements = () => {
           .map((user) => user.email)
       );
 
-    
       const filteredAgreements = agreementsResponse.data.filter(
         (agreement) => !adminEmails.has(agreement.userEmail)
       );
@@ -65,13 +65,12 @@ const AllAgreements = () => {
     }
   };
 
-  
   const handleReject = async (id) => {
     try {
       const response = await axiosSecure.patch(`/agreement/${id}`, {
         action: "reject",
       });
-  
+
       if (response.status === 200) {
         Swal.fire("Rejected!", "Agreement has been rejected.", "info");
         fetchAllAgreements(); // Refresh data after update
@@ -157,6 +156,10 @@ const AllAgreements = () => {
           ))}
         </div>
       )}
+
+      <Helmet>
+        <title>Admin-AgreementReq | SmartHaven</title>
+      </Helmet>
     </div>
   );
 };
