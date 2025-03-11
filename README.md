@@ -1,7 +1,7 @@
 # SmartHaven - Building Management System
 
 ## Live Demo
-🔗 **Live Site URL:** [https://assignment-12-514e2.web.app/]
+🔗 **Live Site URL:** [https://building-management-b2af1.web.app/]
 
 ## Admin Credentials
 👤 **Email:** admin@gmail.com  
