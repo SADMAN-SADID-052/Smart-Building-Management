@@ -11,29 +11,31 @@ import { Helmet } from "react-helmet-async";
 const HomeLayout = () => {
   return (
     <div>
-      <div className="max-w-6xl mx-auto">
-        <header>
-          <Navbar></Navbar>
-          <Banner></Banner>
-        </header>
-        <main>
-          <section>
-            <About></About>
+      <header>
+        <Navbar></Navbar>
+        <Banner></Banner>
+        <section>
+          <About></About>
+        </section>
+
+        <section>
+            <Coupon></Coupon>
           </section>
 
           <section>
-            <Coupon></Coupon>
-          </section>
-          <section>
             <Googlemap></Googlemap>
           </section>
+      </header>
+      <div className="max-w-6xl mx-auto">
+        <main>
+      
+         
         </main>
       </div>
       <Footer></Footer>
 
       <Helmet>
         <title>Home | Building Management</title>
-        
       </Helmet>
     </div>
   );

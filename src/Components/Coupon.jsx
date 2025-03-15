@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { ClipboardCopy, CheckCircle } from "lucide-react";
 import Swal from "sweetalert2"; // Import SweetAlert
 import useAxiosSecure from "../Hooks/useAxiosSecure";
-import { Slide } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
+import { Typewriter } from 'react-simple-typewriter';
 
 const Coupon = () => {
   const axiosSecure = useAxiosSecure();
@@ -42,32 +43,64 @@ const Coupon = () => {
   };
 
   return (
- <div className="">
+ <div id="coupon"
+ 
+ style={{
+  backgroundImage:
+    "url('https://img.freepik.com/premium-vector/plexus-banner-with-we-are-back-door-sign-back-door-sign-flat-style-blue-background_100456-7410.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}}>
 
-     <div className="text-center  bg-blue-300 rounded-2xl p-2 w-1/2 mx-auto mt-4 mb-4">
-      <p className="text-2xl font-bold ">Coupons</p>
-     </div>
-     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-5 min-h-screen  bg-gray-100">
+     <div className="text-center p-4 font-semibold text-2xl ">
       
-     <Slide>
+         <span style={{ color: '#EAD196', fontWeight: 'bold' }}>
+          <Typewriter
+            words={['Coupons']}
+            loop={true}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={2000}
+          />
+        </span>
+     </div>
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5 min-h-screen max-w-6xl mx-auto"
+    
+     >
+      
+     
 
      {coupons.map((coupon) => (
         
-        <div
-          key={coupon.id}
-          className={`relative text-white p-6 rounded-3xl shadow-2xl max-w-sm mx-auto text-center border-4 ${
+     <Zoom>
+
+<div
+        key={coupon.id}
+        className={`relative text-white p-6 shadow-2xl max-w-sm mx-auto text-center ${
+          coupon.availability === "available"
+            ? "border-white"
+            : "border-gray-300 opacity-70 bg-gray-400"
+        }`}
+        style={{
+          backgroundImage:
             coupon.availability === "available"
-              ? "bg-gradient-to-r from-green-600 to-blue-500 border-white"
-              : "bg-gray-400 border-gray-300 opacity-70"
-          }`}
+              ? "url('https://img.freepik.com/free-vector/stylish-percent-icon-promo-background-retail-business-vector_1017-47827.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')"
+              : "none",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity:80
+          
+        }}
         >
-          <div className="text-2xl font-extrabold mb-2">🏡 {coupon.title}</div>
-          <div className="text-2xl font-extrabold mb-2">
-            ## {coupon.availability}
+          <div className="flex justify-center"><img  className="w-20 " src="https://cdn-icons-png.freepik.com/256/2854/2854186.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" /></div>
+          <div className="text-2xl font-extrabold mb-2 text-[#2C3930] uppercase">
+            {coupon.availability}
           </div>
-          <p className="text-lg mb-4">
+          <p className="text-lg mb-4 text-[#780C28] font-semibold bg-amber-600">
             {coupon.description} <br />
-            <span className="text-yellow-400 font-bold text-3xl animate-pulse">
+            <span className="text-[#FF9D23] font-bold text-3xl animate-pulse">
               {coupon.discountPercentage}% OFF
             </span>
           </p>
@@ -93,8 +126,9 @@ const Coupon = () => {
             </button>
           </div>
         </div>
+     </Zoom>
       ))}
-     </Slide>
+     
      
     </div>
  </div>

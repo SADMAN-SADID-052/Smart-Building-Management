@@ -3,27 +3,25 @@ import { Zoom } from "react-awesome-reveal";
 
 const About = () => {
   return (
-    <section className="bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
+    <section
+      className=" py-16 px-6 md:px-12 lg:px-20"
+      id="about"
+      style={{
+        backgroundImage:
+          "url('https://img.freepik.com/free-vector/abstract-background-with-modern-techno-design_1048-5494.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        opacity: 50,
+      }}
+    >
       <div className="max-w-5xl mx-auto text-center">
-        <motion.h2
-          className="text-4xl font-bold text-gray-800 mb-6"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          About Our Luxurious Building
-        </motion.h2>
-        <motion.p
-          className="text-lg text-gray-600 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Nestled in the heart of the city, our modern high-rise offers premium
-          apartments with stunning views, state-of-the-art facilities, and a
-          serene living environment. Designed with elegance and convenience in
-          mind, it provides the perfect balance of comfort and luxury.
-        </motion.p>
+  
+          <h2 className="text-3xl font-semibold text-[#410445bb]">About Our Luxurious Building</h2>
+     
+          <p className="mt-3 text-[#504B38]">SmartHaven is an advanced Building Management System (BMS) designed to <br />
+          streamline apartment rental, tenant management, and administrative
+          operations.</p>
+        
       </div>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

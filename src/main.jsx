@@ -44,6 +44,7 @@ import MakeAnnounce from './Pages/AdminDash/MakeAnnounce.jsx';
 import ManageMembers from './Pages/AdminDash/ManageMembers.jsx';
 import AdminProfile from './Pages/AdminDash/AdminProfile.jsx';
 import MembersProfile from './Pages/MembersDash/MembersProfile.jsx';
+import About from './Components/About.jsx';
 
 
 const queryClient = new QueryClient()

@@ -23,7 +23,7 @@ const Navbar = () => {
             src="https://img.icons8.com/?size=96&id=80347&format=png"
             alt="Home"
           />
-          <p className="text-sm font-bold">Home</p>
+          <p className="text-sm font-bold text-white">Home</p>
         </NavLink>
       </li>
       <li>
@@ -40,7 +40,7 @@ const Navbar = () => {
             src="https://cdn-icons-png.freepik.com/256/2484/2484096.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
             alt="Apartment"
           />
-          <p className="text-sm font-bold">Apartment</p>
+          <p className="text-sm font-bold text-white">Apartment</p>
         </NavLink>
       </li>
     </>
@@ -49,10 +49,10 @@ const Navbar = () => {
   return (
     <div>
       <div
-        className="navbar shadow-sm fixed z-30 opacity-80 max-w-6xl rounded-tl-3xl rounded-br-3xl"
+        className="navbar shadow-sm fixed z-50 opacity-80"
         style={{
           backgroundImage:
-            "url('https://img.freepik.com/free-vector/watercolor-blue-sky-clouds-background_23-2147504592.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
+            "url('https://img.freepik.com/premium-photo/closeup-tiled-roof-3d-rendering_194118-608.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -85,11 +85,11 @@ const Navbar = () => {
           <div className="flex items-center">
             <img
               className="w-20"
-              src="https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+              src="https://cdn-icons-png.freepik.com/256/11875/11875514.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
               alt="Logo"
             />
             <a className="btn btn-ghost text-2xl font-bold">
-            <span style={{ color: 'purple', fontWeight: 'bold' }}>
+            <span style={{ color: '#EAD196', fontWeight: 'bold' }}>
         <Typewriter
           words={['SmartHaven']}
           loop={true}
