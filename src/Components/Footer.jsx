@@ -19,7 +19,7 @@ const Footer = () => {
   };
   return (
     <footer
-      className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10"
+      className="footer footer-horizontal footer-center bg-base-200 text-base-content  p-10"
       style={{
         backgroundImage:
           "url('https://img.freepik.com/free-photo/colored-geometric-blue-yellow-paper-texture-background_24972-440.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",

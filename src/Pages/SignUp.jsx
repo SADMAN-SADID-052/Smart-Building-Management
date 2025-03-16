@@ -85,21 +85,19 @@ const SignUp = () => {
   return (
     <div>
       <div>
-        <section className="bg-gray-800  pt-[10%] relative flex items-center justify-center rounded-b-4xl">
+        <section className="bg-gray-800  pt-[10%] relative flex items-center justify-center ">
           {/* Decorative Circles */}
-          <div className="top-blue w-[250px] h-[250px] bg-blue-400 rounded-full absolute top-[10%] left-[50%]"></div>
-          <div className="bottom-pink w-[280px] h-[280px] bg-pink-400 rounded-full absolute top-[50%] left-[12%] lg:left-[30%]"></div>
-          <div className="top-orange w-[300px] h-[300px] bg-orange-400 rounded-full absolute top-[5%] left-[5%] md:left-[23%] lg:left-[30%]"></div>
+
 
           {/* Login Container */}
-          <div className="w-[350px] sm:w-[350px] bg-gray-900 bg-opacity-60 backdrop-blur-xl text-center p-8 text-white z-10 rounded-xl shadow-lg">
+          <div className="w-[500px] sm:w-[500px] bg-gray-900 bg-opacity-60 backdrop-blur-xl text-center p-8 text-white z-10 rounded-xl shadow-lg">
             <img
               id="passport"
               src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png"
               alt="User Avatar"
             />
             <p className="text-xl sm:text-2xl font-semibold mt-3">
-              SIGNUP Here
+              SIGNUP HERE
             </p>
 
             <hr className="my-4 border-gray-600" />
@@ -138,15 +136,15 @@ const SignUp = () => {
                 className="w-full px-4 py-2 rounded-lg text-black text-base sm:text-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
-              <button type="submit" className="btn btn-error">
+              <button type="submit" className="btn btn-error lg:w-[393px] mt-3">
                 <span className="p-4 text-white font-bold text-xl">
-                  Sign Up
+                  SIGNUP
                 </span>
               </button>
 
               <p className="mt-4 text-gray-300">
                 Already have an Account, click to{" "}
-                <Link to="/auth/login" className="underline text-pink-300">
+                <Link to="/auth/login" className="underline text-pink-300 text-purple-400">
                   LogIn
                 </Link>
               </p>

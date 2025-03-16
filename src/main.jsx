@@ -45,6 +45,7 @@ import ManageMembers from './Pages/AdminDash/ManageMembers.jsx';
 import AdminProfile from './Pages/AdminDash/AdminProfile.jsx';
 import MembersProfile from './Pages/MembersDash/MembersProfile.jsx';
 import About from './Components/About.jsx';
+import Somossa from './Pages/Somossa.jsx';
 
 
 const queryClient = new QueryClient()
@@ -82,6 +83,8 @@ const router = createBrowserRouter([
       <Apartment></Apartment>
     </PrivateRoute>)
   },
+ 
+
 
   {
 
@@ -203,6 +206,11 @@ const router = createBrowserRouter([
     ]
 
 
+  },
+
+  {
+    path:"*",
+    element:<Somossa></Somossa>
   }
 
 

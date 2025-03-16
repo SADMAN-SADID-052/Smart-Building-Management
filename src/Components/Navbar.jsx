@@ -12,7 +12,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            `flex items-center btn btn-outline ${
+            `flex items-center btn btn-outline   ${
               isActive ? "bg-blue-500 text-white" : ""
             }`
           }
@@ -58,7 +58,7 @@ const Navbar = () => {
         }}
       >
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown text-white text-3xl bg-amber-700 rounded-md">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-black rounded-box z-10 mt-4 w-52 p-2 shadow "
             >
               {links}
             </ul>
@@ -143,8 +143,8 @@ const Navbar = () => {
           ) : (
             <Link to="/auth/login">
               <img
-                className="w-28 rounded-4xl"
-                src="https://img.freepik.com/premium-vector/black-red-sign-that-sayslogitechon-it_614034-22766.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                className="w-20  rounded-4xl"
+                src="https://cdn-icons-png.freepik.com/256/17506/17506996.png?ga=GA1.1.687432857.1714536364&semt=ais_hybrid"
                 alt="Login"
               />
             </Link>
