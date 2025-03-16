@@ -24,9 +24,12 @@ const Apartment = () => {
   const fetchApartments = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://building-management-server-nu.vercel.app/apartment`, {
-        params: { page, minRent, maxRent },
-      });
+      const response = await axios.get(
+        `https://building-management-server-nu.vercel.app/apartment`,
+        {
+          params: { page, minRent, maxRent },
+        }
+      );
       setApartments(response.data.apartments);
       setTotalPages(response.data.totalPages);
     } catch (error) {
@@ -37,59 +40,54 @@ const Apartment = () => {
 
   const handleAgreement = async (apartment) => {
     if (!user) {
-        alert("Please log in to apply for an apartment.");
-        return;
+      alert("Please log in to apply for an apartment.");
+      return;
     }
 
     const agreementData = {
-        userName: user.displayName,  
-        userEmail: user.email,      
-        floor: apartment.floor,
-        block: apartment.block,
-        apartmentNo: apartment.apartment_no,
-        rent: apartment.rent,
+      userName: user.displayName,
+      userEmail: user.email,
+      floor: apartment.floor,
+      block: apartment.block,
+      apartmentNo: apartment.apartment_no,
+      rent: apartment.rent,
     };
 
     try {
-        const response = await axios.post('https://building-management-server-nu.vercel.app/agreement', agreementData);
-        if (response.status === 201) {
-            Swal.fire({
-                icon: "success",
-                title: "Agreement Submitted!",
-                text: "Your agreement request has been successfully submitted.",
-            });
-        }
+      const response = await axios.post(
+        "https://building-management-server-nu.vercel.app/agreement",
+        agreementData
+      );
+      if (response.status === 201) {
+        Swal.fire({
+          icon: "success",
+          title: "Agreement Submitted!",
+          text: "Your agreement request has been successfully submitted.",
+        });
+      }
     } catch (error) {
-
-        if (error.response && error.response.status === 400) {
-            Swal.fire({
-                icon: "error",
-                title: "Already Applied",
-                text: "You have already applied for apartment.",
-            });
-        }
-
-        else {
-            Swal.fire({
-                icon: "error",
-                title: "Something went wrong!",
-                text: "Failed to submit agreement. Please try again later.",
-            });
-        }
-
-        
-        
+      if (error.response && error.response.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Already Applied",
+          text: "You have already applied for apartment.",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong!",
+          text: "Failed to submit agreement. Please try again later.",
+        });
+      }
     }
-};
-
+  };
 
   return (
     <div>
+      <header>
+        <Navbar />
+      </header>
       <div className="max-w-6xl mx-auto">
-        <header>
-          <Navbar />
-        </header>
-
         <main className="p-4">
           <h2 className="text-3xl font-bold text-center my-6 mt-24">
             Available Apartments
@@ -111,10 +109,8 @@ const Apartment = () => {
               value={maxRent}
               onChange={(e) => setMaxRent(e.target.value)}
             />
-
           </div>
 
-          
           {loading && <p className="text-center">Loading apartments...</p>}
 
           {/* Apartment List */}
@@ -131,7 +127,9 @@ const Apartment = () => {
                 </h3>
                 <p>Apartment No: {apartment.apartment_no}</p>
                 <p>Rent: ${apartment.rent}</p>
-                <p className="font-bold text-green-600">Status: {apartment.status}</p>
+                <p className="font-bold text-green-600">
+                  Status: {apartment.status}
+                </p>
                 {/* Agreement Button */}
 
                 <button
@@ -166,9 +164,12 @@ const Apartment = () => {
             </button>
           </div>
           <Helmet>
-        <title>Apartment | SmartHaven</title>
-        <meta name="description" content="View and update your profile details in the Apartment Management System." />
-      </Helmet>
+            <title>Apartment | SmartHaven</title>
+            <meta
+              name="description"
+              content="View and update your profile details in the Apartment Management System."
+            />
+          </Helmet>
         </main>
       </div>
 

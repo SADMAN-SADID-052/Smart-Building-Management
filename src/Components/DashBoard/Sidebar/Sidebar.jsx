@@ -44,7 +44,7 @@ const Sidebar = () => {
 
         <button
           onClick={handleToggle}
-          className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
+          className='mobile-menu-button p-4 focus:outline-none focus:bg-red-200'
         >
           <AiOutlineBars className='h-5 w-5' />
         </button>
@@ -60,9 +60,7 @@ const Sidebar = () => {
           <div>
             <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-green-300 mx-auto'>
               <Link to='/'>
-                <img
-                  // className='hidden md:block'
-                  src="https://cdn-icons-png.freepik.com/256/7472/7472791.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                <img className="w-20" src=" https://cdn-icons-png.freepik.com/256/11875/11875514.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
                   alt='logo'
                   width='100'
                   height='100'

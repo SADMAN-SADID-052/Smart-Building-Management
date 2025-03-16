@@ -15,7 +15,6 @@ const ManageMembers = () => {
     try {
       const response = await axiosSecure.get("/users?role=member");
       setMembers(response.data);
-      setLoading(false);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -24,6 +23,7 @@ const ManageMembers = () => {
         background: "#1e293b",
         color: "#f8fafc",
       });
+    } finally {
       setLoading(false);
     }
   };
@@ -42,7 +42,9 @@ const ManageMembers = () => {
       if (result.isConfirmed) {
         try {
           await axiosSecure.patch(`/users/${id}`, { role: "user" });
-          setMembers(members.filter((member) => member._id !== id));
+          setMembers((prevMembers) =>
+            prevMembers.filter((member) => member._id !== id)
+          );
           Swal.fire({
             icon: "success",
             title: "Member Removed",
@@ -64,36 +66,61 @@ const ManageMembers = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center my-6 text-blue-400">
-        Manage Members 🏢
-      </h2>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="text-3xl font-bold  text-blue-400 flex items-center justify-center gap-4">
+        <p>Manage Members </p>
+        <img
+          className="w-12"
+          src="https://cdn-icons-png.freepik.com/256/5677/5677570.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+          alt=""
+        />
+      </div>
 
       {loading ? (
-        <p className="text-center text-lg text-gray-400">Loading members...</p>
+        <div className="flex flex-col items-center mt-6 space-y-2">
+          {[1, 2, 3].map((item) => (
+            <div
+              key={item}
+              className="w-full max-w-2xl h-12 bg-gray-700 animate-pulse rounded-lg"
+            />
+          ))}
+        </div>
       ) : members.length === 0 ? (
-        <p className="text-center text-lg text-gray-400">No members found.</p>
+        <p className="text-center text-lg text-gray-400 mt-6">
+          No members found.
+        </p>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="min-w-full border border-gray-700">
+        <div className="overflow-x-auto mt-6">
+          <table className="w-full border border-gray-700 rounded-lg overflow-hidden">
             <thead>
-              <tr className="bg-gray-800 text-white">
-                <th className="px-4 py-3 text-left">User Name</th>
-                <th className="px-4 py-3 text-left">User Email</th>
-                <th className="px-4 py-3 text-left">Action</th>
+              <tr className="bg-gray-800 text-white text-left">
+                <th className="px-4 py-3">Name</th>
+                <th className="px-4 py-3">Email</th>
+                <th className="px-4 py-3 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
               {members.map((member) => (
-                <tr key={member._id} className="border-t border-gray-700">
+                <tr
+                  key={member._id}
+                  className="border-t border-gray-700 text-black"
+                >
                   <td className="px-4 py-3">{member.name}</td>
                   <td className="px-4 py-3">{member.email}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 flex justify-center">
                     <button
                       onClick={() => handleRemoveMember(member._id)}
-                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+                      className="group cursor-pointer text-white px-4 py-2 rounded transition duration-300 relative"
                     >
-                      Remove ❌
+                      <img
+                        className="w-10"
+                        src="https://cdn-icons-png.freepik.com/256/12318/12318474.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                        alt="Remove"
+                      />
+
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2  hidden group-hover:flex items-center text-xs text-white bg-gray-900 px-2 py-1 rounded-lg shadow-lg">
+                        Remove Member
+                      </span>
                     </button>
                   </td>
                 </tr>

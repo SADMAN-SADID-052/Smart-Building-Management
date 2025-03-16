@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Typewriter } from 'react-simple-typewriter';
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext); // Get user and logout from context
@@ -89,17 +89,17 @@ const Navbar = () => {
               alt="Logo"
             />
             <a className="btn btn-ghost text-2xl font-bold">
-            <span style={{ color: '#EAD196', fontWeight: 'bold' }}>
-        <Typewriter
-          words={['SmartHaven']}
-          loop={true}
-          cursor
-          cursorStyle="_"
-          typeSpeed={70}
-          deleteSpeed={50}
-          delaySpeed={2000}
-        />
-      </span>
+              <span style={{ color: "#EAD196", fontWeight: "bold" }}>
+                <Typewriter
+                  words={["SmartHaven"]}
+                  loop={true}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={2000}
+                />
+              </span>
             </a>
           </div>
         </div>
@@ -121,21 +121,31 @@ const Navbar = () => {
                     {user.displayName}
                   </div>
                   <hr />
-                  <Link to="/dashboard" className="btn btn-error w-full mt-2 hover:bg-black">
-                   <div className="flex gap-1 items-center">
-                    <img className="w-5" src="https://cdn-icons-png.freepik.com/256/16596/16596825.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
-                    <p className="text-white ">Dashboard</p>
-                   </div>
+                  <Link
+                    to="/dashboard"
+                    className="btn btn-error w-full mt-2 hover:bg-black"
+                  >
+                    <div className="flex gap-1 items-center">
+                      <img
+                        className="w-5"
+                        src="https://cdn-icons-png.freepik.com/256/16596/16596825.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                        alt=""
+                      />
+                      <p className="text-white ">Dashboard</p>
+                    </div>
                   </Link>
                   <button
                     onClick={logOut}
                     className="w-full text-left px-4 py-2 text-sm text-white hover:bg-black font-bold btn btn-primary mt-2"
                   >
                     <div className="flex items-center gap-1">
-                      <img className="w-5" src="https://cdn-icons-png.freepik.com/256/10977/10977462.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" alt="" />
+                      <img
+                        className="w-5"
+                        src="https://cdn-icons-png.freepik.com/256/10977/10977462.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                        alt=""
+                      />
                       <p>Logout</p>
                     </div>
-                   
                   </button>
                 </div>
               )}
