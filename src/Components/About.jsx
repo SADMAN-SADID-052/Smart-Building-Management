@@ -6,22 +6,23 @@ const About = () => {
     <section
       className=" py-16 px-6 md:px-12 lg:px-20"
       id="about"
-      style={{
-        backgroundImage:
-          "url('https://img.freepik.com/free-vector/abstract-background-with-modern-techno-design_1048-5494.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        opacity: 50,
-      }}
+  
     >
       <div className="max-w-5xl mx-auto text-center">
-  
-          <h2 className="text-3xl font-semibold text-[#410445bb]">About Our Luxurious Building</h2>
-     
-          <p className="mt-3 text-[#504B38]">SmartHaven is an advanced Building Management System (BMS) designed to <br />
-          streamline apartment rental, tenant management, and administrative
-          operations.</p>
-        
+        <Zoom>
+          <h2 className="text-3xl font-semibold text-[#FFB200]">
+            About Our Building
+          </h2>
+        </Zoom>
+
+        <Zoom duration={1000}>
+          <p className=" text-gray-300 mt-10  text-sm">
+            SmartHaven is an advanced Building Management System (BMS) designed
+            to <br />
+            streamline apartment rental, tenant management, and administrative
+            operations.
+          </p>
+        </Zoom>
       </div>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -29,7 +30,7 @@ const About = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center text-center"
+              className="bg-white shadow-lg rounded-md p-6 flex flex-col items-center text-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -56,7 +57,7 @@ const features = [
     image:
       "https://img.freepik.com/free-photo/3d-gym-equipment_23-2151114205.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid",
     title: "Modern Gym",
-    description: "Stay fit with top-notch fitness equipment.",
+    description: "Stay fit with top-notch fitness equipment for Gym.",
   },
   {
     image:
@@ -74,7 +75,7 @@ const features = [
     image:
       "https://img.freepik.com/premium-vector/palmera-circular-con-mar-abstracto-y-molino-de-agua-en-la-parte-superior-vector-gratis_1249511-1480.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid",
     title: "Infinity Pool",
-    description: "Enjoy breathtaking views while swimming.",
+    description: "Enjoy breath-taking views while swimming.",
   },
   {
     image:

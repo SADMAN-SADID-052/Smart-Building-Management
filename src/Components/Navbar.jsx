@@ -89,7 +89,7 @@ const Navbar = () => {
               alt="Logo"
             />
             <a className="btn btn-ghost text-2xl font-bold">
-              <span style={{ color: "#EAD196", fontWeight: "bold" }}>
+              <span style={{ color: "#FFB200", fontWeight: "bold" }}>
                 <Typewriter
                   words={["SmartHaven"]}
                   loop={true}

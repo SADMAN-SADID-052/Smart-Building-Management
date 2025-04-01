@@ -98,7 +98,7 @@ const Login = () => {
             <hr className="my-4 border-gray-600" />
 
             <div className="text-center mt-6">
-                <button onClick={handleGoogleLogin} className="bg-white p-2 text-black shadow-2xl rounded-md cursor-pointer">
+                <button onClick={handleGoogleLogin} className="bg-white p-2 text-black shadow-2xl rounded-md cursor-pointer hover:bg-blue-200">
 
                   <div className="flex items-center gap-3">
                     <img className="w-7" src="https://cdn-icons-png.freepik.com/256/2504/2504914.png?ga=GA1.1.687432857.1714536364&semt=ais_hybrid" alt="" />
