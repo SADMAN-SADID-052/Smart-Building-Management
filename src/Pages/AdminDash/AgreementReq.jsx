@@ -83,9 +83,14 @@ const AllAgreements = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-8">
-      <h2 className="text-5xl font-extrabold text-center my-10 text-gray-900">
-        All User Agreements
-      </h2>
+      <div className="text-3xl font-bold  text-blue-400 flex items-center justify-center gap-4 mb-10">
+        <p>Agreement Request</p>
+        <img
+          className="w-12"
+          src="https://cdn-icons-png.freepik.com/256/3079/3079968.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+          alt="Agreement Request"
+        />
+      </div>
       {loading && (
         <p className="text-center text-xl text-gray-500 animate-pulse">
           Loading agreements...
@@ -96,58 +101,75 @@ const AllAgreements = () => {
           No agreements found.
         </p>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {agreements.map((agreement) => (
             <div
               key={agreement._id}
-              className="bg-gradient-to-r from-blue-300 to-sky-900 text-white shadow-xl rounded-2xl p-6 border border-gray-300 transform hover:scale-105 transition-all duration-300"
+              className=" shadow-2xl  p-6 transition-all duration-300 hover:shadow-3xl hover:scale-[1.03] overflow-hidden"
             >
-              <h3 className="text-2xl font-bold mb-3">
+              {/* Gradient Border */}
+              <div className=""></div>
+
+              <div className="flex flex-col items-center">
+                <img
+                  className="w-18"
+                  src="https://cdn-icons-png.freepik.com/256/16327/16327810.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+                  alt=""
+                />
+                <p className="text-lg text-gray-800">
+                  {agreement.userName || "N/A"}
+                </p>
+                <p className="text-lg text-gray-800 mt-4">
+                  <span className="bg-pink-200 px-3 py-1 rounded-xl">
+                    {" "}
+                    {agreement.userEmail || "N/A"}
+                  </span>
+                </p>
+              </div>
+              <h3 className="text-2xl font-extrabold mb-3 text-gray-900">
                 Apartment No: {agreement.apartmentNo}
               </h3>
-              <p className="text-lg">
-                <strong>Username:</strong> {agreement.userName || "N/A"}
-              </p>
-              <p className="text-lg">
-                <strong>Email:</strong> {agreement.userEmail || "N/A"}
-              </p>
-              <p className="text-lg">
+
+              <p className="text-lg text-gray-800">
                 <strong>Floor:</strong> {agreement.floor || "N/A"}
               </p>
-              <p className="text-lg">
+              <p className="text-lg text-gray-800">
                 <strong>Block:</strong> {agreement.block || "N/A"}
               </p>
-              <p className="text-lg">
+              <p className="text-lg text-gray-800">
                 <strong>Rent:</strong> ${agreement.rent || "N/A"}
               </p>
-              <p className="text-lg">
-                <strong>Agreement request date:</strong>{" "}
+              <p className="text-lg text-gray-800">
+                <strong>Request date:</strong>{" "}
                 {agreement.createdAt
                   ? new Date(agreement.createdAt).toLocaleDateString()
                   : "N/A"}
               </p>
+
               <p
-                className={`text-xl font-bold ${
+                className={`text-xl font-bold mt-3 ${
                   agreement.status === "pending"
-                    ? "text-yellow-300"
-                    : "text-green-300"
+                    ? "text-yellow-500"
+                    : "text-green-500"
                 }`}
               >
                 Status: {agreement.status || "Pending"}
               </p>
-              <p className="text-lg">
+              <p className="text-lg text-gray-800">
                 <strong>Role:</strong> {getUserRole(agreement.userEmail)}
               </p>
+
+              {/* Action Buttons */}
               <div className="mt-6 flex justify-between">
                 <button
                   onClick={() => handleAccept(agreement)}
-                  className="btn btn-success text-white font-bold px-6 py-3 rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-green-500 to-green-700 text-white font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-300"
                 >
                   Accept
                 </button>
                 <button
                   onClick={() => handleReject(agreement._id)}
-                  className="btn btn-error text-white px-6 py-3 rounded-lg font-bold hover:bg-red-600 transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-red-500 to-red-700 text-white font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-300"
                 >
                   Reject
                 </button>

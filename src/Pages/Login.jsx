@@ -127,7 +127,7 @@ const Login = () => {
                 className="w-full pl-3  text-base sm:text-lg focus:outline-none border-1"
               />
 
-              <button type="submit" className="btn btn-error lg:w-[393px] mt-3">
+              <button type="submit" className="btn btn-info lg:w-[393px] mt-3">
                 <span className="p-4 text-white font-bold text-xl">LOGIN</span>
               </button>
         
@@ -136,7 +136,7 @@ const Login = () => {
                 If you're new here, click to{" "}
                 <Link
                   to="/auth/signup"
-                  className="underline hover:text-pink-300 text-purple-400"
+                  className="underline hover:text-pink-300 text-blue-400"
                 >
                   SIGNUP
                 </Link>

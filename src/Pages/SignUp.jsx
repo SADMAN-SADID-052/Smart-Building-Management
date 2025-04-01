@@ -136,7 +136,7 @@ const SignUp = () => {
                 className="w-full px-4 py-2 rounded-lg text-black text-base sm:text-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
-              <button type="submit" className="btn btn-error lg:w-[393px] mt-3">
+              <button type="submit" className="btn btn-info lg:w-[393px] mt-3 ">
                 <span className="p-4 text-white font-bold text-xl">
                   SIGNUP
                 </span>
@@ -144,7 +144,7 @@ const SignUp = () => {
 
               <p className="mt-4 text-gray-300">
                 Already have an Account, click to{" "}
-                <Link to="/auth/login" className="underline text-pink-300 text-purple-400">
+                <Link to="/auth/login" className="underline  text-blue-400 hover:text-pink-400">
                   LogIn
                 </Link>
               </p>
