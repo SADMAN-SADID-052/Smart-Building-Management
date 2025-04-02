@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { Zoom } from "react-awesome-reveal";
 
 const customIcon = new L.Icon({
   iconUrl:
@@ -19,20 +20,31 @@ const MapComponent = () => {
 
   return (
     <div
-      className="mx-auto p-6 flex flex-col items-center relative z-20"
-      style={{
-        backgroundImage:
-          "url('https://img.freepik.com/premium-photo/3d-geographic-information-system-map-featuring-red-location-pins-spatial-data-connections_444642-67692.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        opacity: 50,
-      }}
+      className="mx-auto p-6 flex flex-col items-center relative z-20" 
+  
     >
-      <h2 className="text-center text-2xl font-bold mb-4 text-[#EAD196]">
-        Location
-      </h2>
+       <div className="text-center p-4 font-semibold text-2xl ">
+             <div className="max-w-5xl mx-auto text-center mb-7">
+               <Zoom duration={1000}>
+                 <h2 className="text-3xl font-semibold text-[#FFB200] mt-12">
+                   Location
+                 </h2>
+               </Zoom>
+     
+               <Zoom duration={1000}>
+                 <p className="text-gray-300 mt-10 text-sm">
+                   SmartHaven is an advanced Building Management System (BMS)
+                   designed to <br />
+                   streamline apartment rental, tenant management, and administrative
+                   operations.
+                 </p>
+               </Zoom>
+             </div>
+           </div>
       <div className="w-full max-w-3xl  overflow-hidden shadow-xl ">
-        <MapContainer
+       <Zoom duration={1000}>
+
+       <MapContainer
           center={position}
           zoom={13}
           style={{ height: "400px", width: "100%" }}
@@ -50,6 +62,7 @@ const MapComponent = () => {
             </Popup>
           </Marker>
         </MapContainer>
+       </Zoom>
       </div>
     </div>
   );

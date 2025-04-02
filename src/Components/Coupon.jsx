@@ -76,9 +76,9 @@ const Coupon = () => {
                   : "border-gray-300 opacity-70 bg-gray-400"
               }`}
               style={{
-                backgroundImage:
+                backgroundColor:
                   coupon.availability === "available"
-                    ? "url('https://img.freepik.com/free-vector/stylish-percent-icon-promo-background-retail-business-vector_1017-47827.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')"
+                    ? "white"
                     : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
