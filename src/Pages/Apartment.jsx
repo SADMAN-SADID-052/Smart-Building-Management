@@ -98,14 +98,14 @@ const Apartment = () => {
             <input
               type="number"
               placeholder="Min Rent"
-              className="border-2 border-amber-500 p-2 rounded"
+              className="  p-2 rounded"
               value={minRent}
               onChange={(e) => setMinRent(e.target.value)}
             />
             <input
               type="number"
               placeholder="Max Rent"
-              className="border p-2 rounded"
+              className=" p-2 rounded"
               value={maxRent}
               onChange={(e) => setMaxRent(e.target.value)}
             />
@@ -116,29 +116,34 @@ const Apartment = () => {
           {/* Apartment List */}
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
             {apartments.map((apartment) => (
-              <div key={apartment._id} className="border p-4 rounded shadow">
-                <img
-                  src={apartment.image}
-                  alt="Apartment"
-                  className="w-full h-40 object-cover rounded mb-4"
-                />
-                <h3 className="text-xl font-semibold">
-                  Floor: {apartment.floor}, Block: {apartment.block}
-                </h3>
-                <p>Apartment No: {apartment.apartment_no}</p>
-                <p>Rent: ${apartment.rent}</p>
-                <p className="font-bold text-green-600">
-                  Status: {apartment.status}
-                </p>
-                {/* Agreement Button */}
-
-                <button
-                  onClick={() => handleAgreement(apartment)}
-                  className="mt-4 bg-[#E8E8E8] text-blue-400 font-semibold px-4 py-2 rounded-2xl border-b-2 border-blue-400 w-full"
-                >
-                  AGREEMENT
-                </button>
-              </div>
+           <div key={apartment._id} className="
+           
+           border p-6 rounded-md shadow-lg bg-white  transition duration-300 relative hover:bg-blue-200 hover:border-b-4 hover:border-b-[#FFB200]">
+           <img
+             src={apartment.image}
+             alt="Apartment"
+             className="w-full h-48 object-cover rounded-lg mb-4"
+           />
+           <p className="absolute top-46 right-2 text-white font-semibold text-xl  p-2 rounded-lg">
+         <span className="bg-[#FFB200] rounded-md p-1">${apartment.rent}</span>
+           </p>
+           <h3 className="text-2xl font-bold text-gray-800">
+             Floor: {apartment.floor}, Block: {apartment.block}
+           </h3>
+           <p className="text-gray-600">Apartment No: <span className="font-medium">{apartment.apartment_no}</span></p>
+           <p className={`font-bold text-lg ${apartment.status === 'Available' ? 'text-green-500' : 'text-red-500'}`}>
+             Status: {apartment.status}
+           </p>
+           
+           {/* Agreement Button */}
+           <button
+             onClick={() => handleAgreement(apartment)}
+             className="mt-4 bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg w-full hover:bg-blue-600 transition duration-300"
+           >
+             AGREEMENT
+           </button>
+         </div>
+         
             ))}
           </div>
 

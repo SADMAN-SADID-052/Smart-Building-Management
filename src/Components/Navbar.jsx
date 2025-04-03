@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext); // Get user and logout from context
+  const { user, logOut } = useContext(AuthContext); 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const links = (
@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             `flex items-center btn btn-outline   ${
-              isActive ? "bg-blue-500 text-white" : ""
+              isActive ? "bg-[#cd9c28] text-white" : ""
             }`
           }
           to="/"
@@ -30,7 +30,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             `flex items-center btn btn-outline ml-2 ${
-              isActive ? "bg-blue-500 text-white" : ""
+              isActive ? "bg-[#cd9c28] text-white" : ""
             }`
           }
           to="/apartment"
@@ -52,7 +52,7 @@ const Navbar = () => {
         className="navbar shadow-sm fixed z-50 opacity-80"
         style={{
           backgroundImage:
-            "url('https://img.freepik.com/premium-photo/closeup-tiled-roof-3d-rendering_194118-608.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
+            "url('https://img.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-144339.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -111,7 +111,7 @@ const Navbar = () => {
             <div className="relative">
               <img
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-12 h-12 rounded-full cursor-pointer border-b-blue-500 border-t-blue-500 border-2"
+                className="w-12 h-12 rounded-full cursor-pointer border-[#FFB200] border-3"
                 src={user.photoURL || "https://via.placeholder.com/150"}
                 alt="Profile"
               />

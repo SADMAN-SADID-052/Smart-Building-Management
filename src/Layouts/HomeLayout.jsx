@@ -13,7 +13,10 @@ const HomeLayout = () => {
     <div>
       <header>
         <Navbar></Navbar>
-        <Banner></Banner>
+       <section>
+
+       <Banner></Banner>
+       </section>
         <section>
           <About></About>
         </section>

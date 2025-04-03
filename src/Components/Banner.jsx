@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 const Banner = () => {
   return (
-    <div>
+    <div className="">
       <Carousel autoPlay infiniteLoop interval={2000}>
         <div>
           <img  src="https://img.freepik.com/free-photo/man-architect-working-project-with-vr-glasses-new-technologies-3d_1268-29304.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid" />

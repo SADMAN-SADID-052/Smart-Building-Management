@@ -22,7 +22,7 @@ const Footer = () => {
       className="footer footer-horizontal footer-center bg-base-200 text-base-content  p-10"
       style={{
         backgroundImage:
-          "url('https://img.freepik.com/premium-photo/closeup-tiled-roof-3d-rendering_194118-608.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
+          "url('https://img.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-144339.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
