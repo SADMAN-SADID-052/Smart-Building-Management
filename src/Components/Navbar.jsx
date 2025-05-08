@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext); 
+  const { user, logOut } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const links = (
@@ -12,35 +12,21 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            `flex items-center btn btn-outline   ${
-              isActive ? "bg-[#cd9c28] text-white" : ""
-            }`
+            `flex items-center   ${isActive ? "text-white" : "text-[#0099FF]"}`
           }
           to="/"
         >
-          <img
-            className="w-5"
-            src="https://img.icons8.com/?size=96&id=80347&format=png"
-            alt="Home"
-          />
-          <p className="text-sm font-bold text-white">Home</p>
+          <p className="text-sm font-bold ">Home</p>
         </NavLink>
       </li>
       <li>
         <NavLink
           className={({ isActive }) =>
-            `flex items-center btn btn-outline ml-2 ${
-              isActive ? "bg-[#cd9c28] text-white" : ""
-            }`
+            `flex items-center  ${isActive ? " text-white" : "text-[#0099FF]"}`
           }
           to="/apartment"
         >
-          <img
-            className="w-5"
-            src="https://cdn-icons-png.freepik.com/256/2484/2484096.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
-            alt="Apartment"
-          />
-          <p className="text-sm font-bold text-white">Apartment</p>
+          <p className="text-sm font-bold ">Apartment</p>
         </NavLink>
       </li>
     </>
@@ -48,15 +34,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div
-        className="navbar shadow-sm fixed z-50 opacity-80"
-        style={{
-          backgroundImage:
-            "url('https://img.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-144339.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="navbar shadow-sm fixed z-50  bg-[#001F3F]">
         <div className="navbar-start">
           <div className="dropdown text-white text-3xl bg-amber-700 rounded-md">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,23 +62,13 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <img
-              className="w-20"
-              src="https://cdn-icons-png.freepik.com/256/11875/11875514.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+              className="w-12"
+              src="https://cdn-icons-png.freepik.com/256/13075/13075858.png?uid=R159445612&ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
               alt="Logo"
             />
-            <a className="btn btn-ghost text-2xl font-bold">
-              <span style={{ color: "#FFB200", fontWeight: "bold" }}>
-                <Typewriter
-                  words={["SmartHaven"]}
-                  loop={true}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={2000}
-                />
-              </span>
-            </a>
+            <p class="text-2xl font-extrabold bg-gradient-to-r from-[#60a5fa] to-[#22d3ee] bg-clip-text text-transparent ml-2">
+              SmartHaven
+            </p>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -152,11 +120,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link to="/auth/login">
-              <img
-                className="w-20  rounded-4xl"
-                src="https://cdn-icons-png.freepik.com/256/17506/17506996.png?ga=GA1.1.687432857.1714536364&semt=ais_hybrid"
-                alt="Login"
-              />
+              <p className="text-[#0099FF] p-7 font-bold hover:text-white text-xl">Login</p>
             </Link>
           )}
         </div>

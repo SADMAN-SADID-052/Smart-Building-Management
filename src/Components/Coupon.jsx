@@ -50,7 +50,7 @@ const Coupon = () => {
       <div className="text-center p-4 font-semibold text-2xl ">
         <div className="max-w-5xl mx-auto text-center mb-7">
           <Fade duration={1000}>
-            <h2 className="text-3xl font-semibold text-[#FFB200] mt-12">
+            <h2 className="text-4xl font-bold text-[#4DB2F6] ">
               Coupons
             </h2>
           </Fade>
