@@ -19,13 +19,8 @@ const Footer = () => {
   };
   return (
     <footer
-      className="footer footer-horizontal footer-center bg-base-200 text-base-content  p-10"
-      style={{
-        backgroundImage:
-          "url('https://img.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-144339.jpg?ga=GA1.1.94081497.1723952170&semt=ais_hybrid')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="footer footer-horizontal footer-center text-base-content  p-10 bg-[#001F3F]"
+
     >
       <div>
         <a
@@ -34,16 +29,16 @@ const Footer = () => {
           title="Company"
           className="inline-flex items-center"
         >
-          <img
-            className="w-20"
-            src="https://cdn-icons-png.freepik.com/256/11875/11875514.png?ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
-            alt=""
-          />
+        <img
+              className="w-16"
+              src="https://cdn-icons-png.freepik.com/256/13075/13075858.png?uid=R159445612&ga=GA1.1.94081497.1723952170&semt=ais_hybrid"
+              alt="Logo"
+            />
         </a>
 
-        <p className="ml-2 text-2xl font-bold tracking-wide text-[#FFB200]">
-          SmartHaven
-        </p>
+        <p class="text-2xl font-extrabold bg-gradient-to-r from-[#60a5fa] to-[#22d3ee] bg-clip-text text-transparent ml-2">
+              SmartHaven
+            </p>
       </div>
       <nav className="grid grid-flow-col gap-4">
         <button onClick={handleAboutClick} className="link link-hover">
