@@ -3,11 +3,7 @@ import { Zoom } from "react-awesome-reveal";
 
 const About = () => {
   return (
-    <section
-      className=" py-16 px-6 md:px-12 lg:px-20"
-      id="about"
-  
-    >
+    <section className=" py-16 px-6 md:px-12 lg:px-20" id="about">
       <div className="max-w-5xl mx-auto text-center">
         <Zoom>
           <h2 className="text-4xl font-bold text-[#4DB2F6] ">
@@ -30,7 +26,9 @@ const About = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`bg-white border-2 border-transparent shadow-lg rounded-md p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 ${hoverBorderColors[index % hoverBorderColors.length]}`}
+              className={`bg-white border-2 border-transparent shadow-lg rounded-md p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 ${
+                hoverBorderColors[index % hoverBorderColors.length]
+              }`}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -40,8 +38,10 @@ const About = () => {
                 alt={feature.title}
                 className="mb-4 w-20 h-20"
               />
-            
-              <h3 className={`text-xl font-semibold text-[#4DB2F6] hover:scale-105  `}>
+
+              <h3
+                className={`text-xl font-semibold text-[#4DB2F6] hover:scale-105  `}
+              >
                 {feature.title}
               </h3>
               <p className="text-gray-500 mt-2">{feature.description}</p>
@@ -85,8 +85,7 @@ const features = [
     description: "Ample parking space for residents and guests.",
   },
   {
-    image:
-      "https://img.icons8.com/?size=160&id=WFSwqY94BLIl&format=png",
+    image: "https://img.icons8.com/?size=160&id=WFSwqY94BLIl&format=png",
     title: "High-Speed WiFi",
     description: "Stay connected with fast and reliable internet.",
   },

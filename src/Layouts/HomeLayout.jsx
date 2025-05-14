@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet-async";
 // import Map from '../Components/Map';
 const HomeLayout = () => {
   return (
-    <div>
+    <div className="bg-white">
       <header>
         <Navbar></Navbar>
        <section>
