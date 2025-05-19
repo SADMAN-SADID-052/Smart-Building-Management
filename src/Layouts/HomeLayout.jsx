@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
 import About from "../Components/About";
+import Feadback from "../Components/Feadback"
 import Coupon from "../Components/Coupon";
 import Facilities from "../Components/Facilities";
 import Googlemap from "../GoogleMap/GoogleMap";
@@ -29,9 +30,14 @@ const HomeLayout = () => {
           <Coupon></Coupon>
         </section>
 
+
         <section>
           <Googlemap></Googlemap>
         </section>
+
+       <section>
+        <Feadback></Feadback>
+       </section>
       </header>
       <div className="max-w-6xl mx-auto">
         <main></main>
