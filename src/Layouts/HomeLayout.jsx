@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import Banner from "../Components/Banner";
 import About from "../Components/About";
 import Coupon from "../Components/Coupon";
+import Facilities from "../Components/Facilities";
 import Googlemap from "../GoogleMap/GoogleMap";
 import { Helmet } from "react-helmet-async";
 
@@ -13,27 +14,27 @@ const HomeLayout = () => {
     <div className="bg-white">
       <header>
         <Navbar></Navbar>
-       <section>
-
-       <Banner></Banner>
-       </section>
+        <section>
+          <Banner></Banner>
+        </section>
         <section>
           <About></About>
         </section>
 
         <section>
-            <Coupon></Coupon>
-          </section>
+          <Facilities></Facilities>
+        </section>
 
-          <section>
-            <Googlemap></Googlemap>
-          </section>
+        <section>
+          <Coupon></Coupon>
+        </section>
+
+        <section>
+          <Googlemap></Googlemap>
+        </section>
       </header>
       <div className="max-w-6xl mx-auto">
-        <main>
-      
-         
-        </main>
+        <main></main>
       </div>
       <Footer></Footer>
 
