@@ -5,6 +5,7 @@ import Banner from "../Components/Banner";
 import About from "../Components/About";
 import Feadback from "../Components/Feadback"
 import Coupon from "../Components/Coupon";
+import Steps from "../Components/Steps"
 import Facilities from "../Components/Facilities";
 import Googlemap from "../GoogleMap/GoogleMap";
 import { Helmet } from "react-helmet-async";
@@ -37,6 +38,10 @@ const HomeLayout = () => {
 
        <section>
         <Feadback></Feadback>
+       </section>
+
+       <section>
+        <Steps></Steps>
        </section>
       </header>
       <div className="max-w-6xl mx-auto">
